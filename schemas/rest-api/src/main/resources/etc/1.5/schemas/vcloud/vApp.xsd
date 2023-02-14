@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  #%L
-  vcd-rest-api-schemas :: vCloud Director REST API schemas
-  %%
-  Copyright (C) 2013 - 2019 VMware
-  %%
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  
-  1. Redistributions of source code must retain the above copyright notice,
-     this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
-  #L%
-  -->
-<!--
 Copyright © 2013 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -37,7 +9,18 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
---><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:cim="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vmw="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
+-->
+<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5"
+           xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+           xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:meta="http://www.vmware.com/vcloud/meta"
+           jaxb:version="2.0"
+           jaxb:extensionBindingPrefixes="meta"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.vmware.com/vcloud/v1.5"
+           version="1.0">
 
     <xs:import namespace="http://schemas.dmtf.org/ovf/envelope/1" schemaLocation="http://schemas.dmtf.org/ovf/envelope/1/dsp8023_1.1.0.xsd"/>
     <xs:import namespace="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" schemaLocation="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2.22.0/CIM_ResourceAllocationSettingData.xsd"/>
@@ -144,7 +127,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmCapabilities" type="VmCapabilitiesType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VmCapabilities" type="VmCapabilitiesType" minOccurs="0" maxOccurs="1" >
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -155,7 +138,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="StorageProfile" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="StorageProfile" type="ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -169,7 +152,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VdcComputePolicy" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VdcComputePolicy" type="ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                             <xs:documentation source="added-in">31.0</xs:documentation>
@@ -184,7 +167,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ComputePolicy" type="ComputePolicyType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="ComputePolicy" type="ComputePolicyType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
                             <xs:documentation source="added-in">VM_SIZING_POLICY</xs:documentation>
@@ -197,7 +180,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ComputePolicyCompliance" type="ComputePolicyComplianceType" minOccurs="0" maxOccurs="2">
+                    <xs:element name="ComputePolicyCompliance" type="ComputePolicyComplianceType"  minOccurs="0"  maxOccurs="2">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
                             <xs:documentation source="added-in">VM_SIZING_POLICY</xs:documentation>
@@ -209,7 +192,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="IsComputePolicyCompliant" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                    <xs:element name="IsComputePolicyCompliant" type="xs:boolean"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
                             <xs:documentation source="added-in">33.0</xs:documentation>
@@ -220,7 +203,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="BootOptions" type="BootOptionsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="BootOptions" type="BootOptionsType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="21.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -232,7 +215,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="Media" type="ReferenceType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="RECOMPOSE_BLANK_VM"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="RECOMPOSE_BLANK_VM" /></xs:appinfo>
                             <xs:documentation source="since">RECOMPOSE_BLANK_VM</xs:documentation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -241,7 +224,27 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="ReplicationTrackingSettings" type="ReplicationTrackingSettingsType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="REPLICATION_TRACKING"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The replication state of the VM.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
+                <xs:attribute name="encrypted" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation xml:lang="en">
+                            True if VM is encrypted. This is a read-only value.
+                        </xs:documentation>
+                        <xs:documentation source="required">false</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
                 <xs:attribute name="needsCustomization" type="xs:boolean" use="optional">
                     <xs:annotation>
                         <xs:documentation source="modifiable">none</xs:documentation>
@@ -274,7 +277,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:content-type>application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection</meta:content-type>
                 <meta:version added-in="13.0"/>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">13.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Checks the status of if post guest customization script should be checked. Internal Use only.
@@ -306,7 +309,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:content-type>application/vnd.vmware.vcloud.guestCustomizationStatusSection</meta:content-type>
                 <meta:version added-in="13.0"/>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">13.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents a guest customization status. Internal Use only.
@@ -347,11 +350,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="BootOptions" type="BootOptionsType"/>
+    <xs:element name="BootOptions" type="BootOptionsType" />
     <xs:complexType name="BootOptionsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="21.0"/>
+                <meta:version added-in="21.0" />
                 <meta:content-type>application/vnd.vmware.vcloud.bootOptionsSection</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">21.0</xs:documentation>
@@ -366,7 +369,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element minOccurs="0" maxOccurs="1" type="xs:long" name="BootDelay">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="21.0"/>
+                                <meta:version added-in="21.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -380,7 +383,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="EnterBIOSSetup">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="21.0"/>
+                                <meta:version added-in="21.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -390,16 +393,71 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="BootRetryEnabled">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="BOOT_OPTIONS_EXT" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation source="since">BOOT_OPTIONS_EXT</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                If set to true, a virtual machine that fails to boot will try again after the BootRetryDelay time period has expired.
+                                When false, the virtual machine waits indefinitely for you to initiate boot retry.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" type="xs:long" name="BootRetryDelay">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="BOOT_OPTIONS_EXT" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation source="since">BOOT_OPTIONS_EXT</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Delay in milliseconds before a boot retry. The boot retry delay specifies a time interval between virtual machine boot
+                                failure and the subsequent attempt to boot again. The virtual machine uses this value only if bootRetryEnabled is true.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="EfiSecureBootEnabled">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="BOOT_OPTIONS_EXT" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation source="since">BOOT_OPTIONS_EXT</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                If set to true, the virtual machine automatically enters BIOS setup the next time it boots.
+                                The virtual machine resets this flag to false so that subsequent boots proceed normally
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="NetworkBootProtocol">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="BOOT_OPTIONS_EXT" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation source="since">BOOT_OPTIONS_EXT</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Protocol to attempt during PXE network boot or NetBoot.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="ComputePolicy" type="ComputePolicyType"/>
+    <xs:element name="ComputePolicy" type="ComputePolicyType" />
     <xs:complexType name="ComputePolicyType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_SIZING_POLICY"/>
+                <meta:version added-in="VM_SIZING_POLICY" />
                 <meta:content-type>application/vnd.vmware.vcloud.computePolicySection</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_SIZING_POLICY</xs:documentation>
@@ -413,7 +471,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element minOccurs="0" maxOccurs="1" type="ReferenceType" name="VmPlacementPolicy">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="VM_SIZING_POLICY"/>
+                                <meta:version added-in="VM_SIZING_POLICY" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -423,10 +481,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="VmPlacementPolicyFinal">
+                    <xs:element  minOccurs="0" maxOccurs="1" type="xs:boolean" name="VmPlacementPolicyFinal">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="33.0"/>
+                                <meta:version added-in="33.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -439,7 +497,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element minOccurs="0" maxOccurs="1" type="ReferenceType" name="VmSizingPolicy">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="VM_SIZING_POLICY"/>
+                                <meta:version added-in="VM_SIZING_POLICY" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -448,10 +506,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="VmSizingPolicyFinal">
+                    <xs:element  minOccurs="0" maxOccurs="1" type="xs:boolean" name="VmSizingPolicyFinal">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="33.0"/>
+                                <meta:version added-in="33.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -466,11 +524,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="ComputePolicyCompliance" type="ComputePolicyComplianceType"/>
+    <xs:element name="ComputePolicyCompliance" type="ComputePolicyComplianceType" />
     <xs:complexType name="ComputePolicyComplianceType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_SIZING_POLICY"/>
+                <meta:version added-in="VM_SIZING_POLICY" />
                 <meta:content-type>application/vnd.vmware.vcloud.computePolicyComplianceSection</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_SIZING_POLICY</xs:documentation>
@@ -484,7 +542,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element minOccurs="1" maxOccurs="1" type="xs:dateTime" name="LastComplianceCheckTime">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="VM_SIZING_POLICY"/>
+                                <meta:version added-in="VM_SIZING_POLICY" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -497,7 +555,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element minOccurs="1" maxOccurs="1" type="xs:string" name="PolicyName">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="VM_SIZING_POLICY"/>
+                                <meta:version added-in="VM_SIZING_POLICY" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -510,11 +568,43 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element minOccurs="1" maxOccurs="unbounded" type="xs:string" name="NonComplianceMessage">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="VM_SIZING_POLICY"/>
+                                <meta:version added-in="VM_SIZING_POLICY" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Detailed reason about non-compliance of the VM. This is a read-only value.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="ReplicationTrackingSettings" type="ReplicationTrackingSettingsType"/>
+    <xs:complexType name="ReplicationTrackingSettingsType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:version added-in="REPLICATION_TRACKING" />
+                <meta:content-type>application/vnd.vmware.vcloud.replicationTrackingSettings</meta:content-type>
+            </xs:appinfo>
+            <xs:documentation source="since">ALPHA</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Replication tracking properties of the VM.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ResourceType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="ReplicationTrackingVmState">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="REPLICATION_TRACKING" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The replication state of the VM.
                             </xs:documentation>
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
@@ -591,7 +681,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="autoNature" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                    <xs:element name="autoNature" type="xs:boolean"  minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="VAPP_AUTO_NATURE"/></xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
@@ -603,7 +693,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                        </xs:annotation>
                     </xs:element>
-                    <xs:element name="InMaintenanceMode" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                    <xs:element name="InMaintenanceMode" type="xs:boolean"  minOccurs="0" maxOccurs="1">
                        <xs:annotation>
                           <xs:documentation>
                              True if this vApp is in maintenance mode. Prevents
@@ -633,6 +723,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                         <xs:documentation source="required">false</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -975,6 +1066,37 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                         </xs:annotation>
                     </xs:element>
 
+                    <xs:element name="IpType" type="IpTypeType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation xml:lang="en">
+                                Type of the IP address assigned to this NIC.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
+                    <xs:element name="SecondaryIpAddress" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation xml:lang="en">
+                                Secondary IP address associated with this NIC.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
+                    <xs:element name="SecondaryIpType" type="IpTypeType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation xml:lang="en">
+                                Type of the secondary IP address assigned to this NIC. This will be populated with 'IPv6'
+                                for dual stack networks, even if there is no secondary IP.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
                     <xs:element name="ExternalIpAddress" type="IpAddressType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
@@ -1011,21 +1133,38 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="IpAddressAllocationMode" type="xs:string">
+                    <xs:element name="IpAddressAllocationMode" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 IP address allocation mode for this connection.
-                                One of:&lt;br&gt;
-                                &lt;b&gt;POOL&lt;/b&gt; (A static IP address is allocated
-                                automatically from a pool of addresses.)&lt;br&gt;
-                                &lt;b&gt;DHCP&lt;/b&gt; (The IP address is obtained from a DHCP
-                                service.)&lt;br&gt;
-                                &lt;b&gt;MANUAL&lt;/b&gt; (The IP address is assigned manually in
-                                the IpAddress element.)&lt;br&gt;
-                                &lt;b&gt;NONE&lt;/b&gt; (No IP addressing mode specified.)
+                                One of:
+                                POOL (A static IP address is allocated
+                                automatically from a pool of addresses.),
+                                DHCP (The IP address is obtained from a DHCP
+                                service.),
+                                MANUAL (The IP address is assigned manually in
+                                the IpAddress element.),
+                                NONE (No IP addressing mode specified.)
                             </xs:documentation>
                             <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SecondaryIpAddressAllocationMode" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation xml:lang="en">
+                                Secondary IP address allocation mode for the secondary IP address associated with this connection.
+                                One of:
+                                POOL (A static IP address is allocated
+                                automatically from a pool of addresses.),
+                                DHCP (The IP address is obtained from a DHCP
+                                service.),
+                                MANUAL (The IP address is assigned manually in
+                                the IpAddress element.),
+                                NONE (No IP addressing mode specified.)
+                            </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="NetworkAdapterType" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -1074,7 +1213,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     <xs:simpleType name="VirtualCpuTypeType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes virtualCpu type of VM.
@@ -1083,28 +1222,28 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="VM32"/>
-            <xs:enumeration value="VM64"/>
+            <xs:enumeration value="VM32" />
+            <xs:enumeration value="VM64" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="MediaTypeType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents media supported by VM. This can be an ISO image and/or floppy.
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="ISO"/>
-            <xs:enumeration value="FLOPPY"/>
+            <xs:enumeration value="ISO" />
+            <xs:enumeration value="FLOPPY" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="MediaStateType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes the possible configuration states of a media device. One of:&lt;br&gt;
@@ -1120,15 +1259,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="DISCONNECTED"/>
-            <xs:enumeration value="SERVER"/>
-            <xs:enumeration value="REMOTE"/>
+            <xs:enumeration value="DISCONNECTED" />
+            <xs:enumeration value="SERVER" />
+            <xs:enumeration value="REMOTE" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:complexType name="MediaSettingsType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes a media in a VM device and what media is attached to it.
@@ -1195,7 +1334,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="AdapterType" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="AdapterType" type="xs:string"  minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1212,7 +1351,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     <xs:complexType name="DiskSettingsType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 A description of a virtual disk of a VM.
@@ -1311,6 +1450,21 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="iops" type="xs:long" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
+                            <xs:appinfo><meta:version removed-in="37.0"/></xs:appinfo>
+                            <xs:documentation source="deprecated">37.0</xs:documentation>
+                            <xs:documentation source="removed-in">37.0</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Specifies the IOPS for the disk.
+                                Thbis attribute is deprected and removed in 37.0; use IopsAllocation instead.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="IopsAllocation" type="IopsResourceType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="added-in">37.0</xs:documentation>
+                            <xs:appinfo><meta:version added-in="37.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Specifies the IOPS for the disk.
@@ -1336,14 +1490,76 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="resizable" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="added-in">34.0</xs:documentation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                True if the disk can be grown.  This is a read-only value.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="encrypted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="added-in">34.0</xs:documentation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                True if the disk is encrypted. This is a read-only value.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="shareable" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="added-in">35.0</xs:documentation>
+                            <xs:documentation source="deprecated">36.0</xs:documentation>
+                            <xs:appinfo><meta:version added-in="35.0" /></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                True if the disk is shareable. This is a read-only value.
+                                This attribute is deprecated; use sharingType instead.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="sharingType" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="added-in">36.0</xs:documentation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Sharing type of the disk. This attribute is immutable.
+                                This attribute can only have values defined by DiskSharingType.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
+    <xs:simpleType name="DiskSharingType">
+        <xs:annotation>
+            <xs:appinfo><meta:version added-in="36.0" /></xs:appinfo>
+            <xs:documentation source="since">36.0</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Sharing type of named disks.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="DiskSharing" />
+            <xs:enumeration value="ControllerSharing" />
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name="ResourceSharesLevelType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 Allocation level for how much of a resource can be consumed by the
@@ -1353,16 +1569,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="LOW"/>
-            <xs:enumeration value="NORMAL"/>
-            <xs:enumeration value="HIGH"/>
-            <xs:enumeration value="CUSTOM"/>
+            <xs:enumeration value="LOW" />
+            <xs:enumeration value="NORMAL" />
+            <xs:enumeration value="HIGH" />
+            <xs:enumeration value="CUSTOM" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:complexType name="MediaSectionType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 The section of the VM representation that has to do with the VM's media
@@ -1388,7 +1604,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     <xs:complexType name="DiskSectionType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 The section of the VM representation that has to do with the VM's disks.
@@ -1413,7 +1629,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     <xs:complexType name="ComputeResourceType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 Stores the configured value, reservation, shares and limit for compute
@@ -1479,7 +1695,81 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="HardwareVersionBaseType" abstract="true"/>
+    <xs:complexType name="IopsResourceType">
+        <xs:annotation>
+            <xs:appinfo><meta:version added-in="37.0" /></xs:appinfo>
+            <xs:documentation source="since">37.0</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Stores the reservation, limit, shares and shares level for IOPS of a disk.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="VCloudExtensibleType">
+                <xs:sequence>
+                    <xs:element name="Reservation" type="xs:long" minOccurs="1" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="37.0" /></xs:appinfo>
+                            <xs:documentation source="since">37.0</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The amount of reservation of IOPS on the underlying
+                                virtualization infrastructure. This is a read-only.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Limit" type="xs:long" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="37.0" /></xs:appinfo>
+                            <xs:documentation source="since">37.0</xs:documentation>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The limit for how much of IOPS can be consumed on the
+                                underlying virtualization infrastructure. This is only valid when
+                                the resource allocation is not unlimited.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SharesLevel" type="ResourceSharesLevelType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="37.0" /></xs:appinfo>
+                            <xs:documentation source="since">37.0</xs:documentation>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Pre-determined relative priorities according to which the
+                                non-reserved portion of IOPS is made available to the
+                                virtualized workload. This is a read-only.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Shares" type="xs:int" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="37.0" /></xs:appinfo>
+                            <xs:documentation source="since">37.0</xs:documentation>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Custom priority for IOPS. This is a read-only.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="HardwareVersionBaseType" abstract="true">
+      <xs:annotation>
+        <xs:appinfo>
+          <jaxb:property name="content" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:simpleContent>
+        <xs:extension base="xs:string" />
+      </xs:simpleContent>
+    </xs:complexType>
 
     <xs:complexType name="HardwareVersionType">
         <xs:annotation>
@@ -1487,9 +1777,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:documentation xml:lang="en">
                 Represents a supported virtual hardware version.
             </xs:documentation>
+            <xs:appinfo>
+              <jaxb:property name="content" />
+            </xs:appinfo>
         </xs:annotation>
 
-        <xs:complexContent mixed="true">
+        <xs:simpleContent>
             <xs:extension base="HardwareVersionBaseType">
                 <xs:attribute name="href" type="xs:anyURI" use="optional">
                     <xs:annotation>
@@ -1511,13 +1804,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
-        </xs:complexContent>
+        </xs:simpleContent>
     </xs:complexType>
 
     <xs:element name="VmSpecSection" substitutionGroup="ovf:Section" type="VmSpecSectionType"/>
     <xs:complexType name="VmSpecSectionType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.simpleVirtualHardwareSection</meta:content-type>
             </xs:appinfo>
@@ -1538,6 +1831,18 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 The type of the OS.
                                 This parameter may be omitted when using the VmSpec to update the contents
                                 of an existing VM.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Firmware" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="BOOT_FIRMWARE" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Type of firmware (EFI or BIOS) to describe boot behavior of VM.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -1604,7 +1909,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="HardwareVersion" type="HardwareVersionType">
+                    <xs:element name="HardwareVersion" type="HardwareVersionType" >
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1891,7 +2196,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation xml:lang="en">
                                 True if guest customization can modify
                                 administrator password settings for this
-                                virtual machine.
+                                virtual machine. By default this value would be false starting in ApiVersion 37.0
+                                unless specified in ovf.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -1902,7 +2208,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation xml:lang="en">
                                 True if the  administrator password for this
                                 virtual machine should be automatically
-                                generated.
+                                generated. By default this value would be false starting in ApiVersion 37.0
+                                unless specified in ovf.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -2262,10 +2569,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmGeneralParams" type="VmGeneralParamsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VmGeneralParams"
+                        type="VmGeneralParamsType" minOccurs="0"
+                        maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="since">
                                 5.6
@@ -2282,7 +2591,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VAppScopedLocalId" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VAppScopedLocalId"
+                        type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="since">
                                 1.0
@@ -2300,7 +2610,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="InstantiationParams" type="InstantiationParamsType" minOccurs="0">
+                    <xs:element name="InstantiationParams"
+                        type="InstantiationParamsType" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation source="modifiable">
                                 always
@@ -2319,7 +2630,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="NetworkAssignment" type="NetworkAssignmentType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="NetworkAssignment"
+                        type="NetworkAssignmentType" minOccurs="0"
+                        maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation source="modifiable">
                                 always
@@ -2335,10 +2648,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="StorageProfile" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="StorageProfile"
+                        type="ReferenceType" minOccurs="0"
+                        maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.1"/>
+                                <meta:version added-in="5.1" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -2358,7 +2673,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VdcComputePolicy" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VdcComputePolicy" type="ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                             <xs:documentation source="added-in">31.0</xs:documentation>
@@ -2373,7 +2688,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ComputePolicy" type="ComputePolicyType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="ComputePolicy" type="ComputePolicyType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
                                 <meta:version added-in="33.0"/>
@@ -2388,10 +2703,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="LocalityParams" type="LocalityParamsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="LocalityParams"
+                        type="LocalityParamsType" minOccurs="0"
+                        maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="since">
                                 5.6
@@ -2414,7 +2731,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="VmCapabilities" type="VmCapabilitiesType" maxOccurs="1" minOccurs="0">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="since">
                                 5.6
@@ -2451,7 +2768,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     <xs:complexType name="SourcedVmTemplateParamsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="INSTANTIATE_VM_TEMPLATE"/>
+                <meta:version added-in="INSTANTIATE_VM_TEMPLATE" />
             </xs:appinfo>
             <xs:documentation source="since">INSTANTIATE_VM_TEMPLATE</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -2471,10 +2788,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmGeneralParams" type="VmGeneralParamsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VmGeneralParams" type="VmGeneralParamsType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE"/>
+                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE" />
                             </xs:appinfo>
                             <xs:documentation source="since">INSTANTIATE_VM_TEMPLATE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -2485,7 +2803,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmTemplateInstantiationParams" type="InstantiationParamsType" minOccurs="0">
+                    <xs:element name="VmTemplateInstantiationParams"
+                        type="InstantiationParamsType" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -2498,10 +2817,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="StorageProfile" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="StorageProfile" type="ReferenceType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE"/>
+                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE" />
                             </xs:appinfo>
                             <xs:documentation source="since">INSTANTIATE_VM_TEMPLATE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -2517,10 +2837,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="LocalityParams" type="LocalityParamsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="LocalityParams" type="LocalityParamsType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE"/>
+                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE" />
                             </xs:appinfo>
                             <xs:documentation source="since">INSTANTIATE_VM_TEMPLATE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -2536,10 +2857,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmCapabilities" type="VmCapabilitiesType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VmCapabilities" type="VmCapabilitiesType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE"/>
+                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE" />
                             </xs:appinfo>
                             <xs:documentation source="since">INSTANTIATE_VM_TEMPLATE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -2555,12 +2877,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="InstantiateVmTemplateParams" type="InstantiateVmTemplateParamsType"/>
+    <xs:element name="InstantiateVmTemplateParams" type="InstantiateVmTemplateParamsType" />
     <xs:complexType name="InstantiateVmTemplateParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.instantiateVmTemplateParams</meta:content-type>
-                <meta:version added-in="INSTANTIATE_VM_TEMPLATE"/>
+                <meta:version added-in="INSTANTIATE_VM_TEMPLATE" />
             </xs:appinfo>
             <xs:documentation source="since">INSTANTIATE_VM_TEMPLATE</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -2571,10 +2893,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ParamsType">
                 <xs:sequence>
-                    <xs:element name="SourcedVmTemplateItem" type="SourcedVmTemplateParamsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="SourcedVmTemplateItem"
+                        type="SourcedVmTemplateParamsType" minOccurs="0"
+                        maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE"/>
+                                <meta:version added-in="INSTANTIATE_VM_TEMPLATE" />
                             </xs:appinfo>
                             <xs:documentation source="since">INSTANTIATE_VM_TEMPLATE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -2600,7 +2924,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ComputePolicy" type="ComputePolicyType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="ComputePolicy" type="ComputePolicyType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
                                 <meta:version added-in="VM_SIZING_POLICY"/>
@@ -2717,9 +3041,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CreateItem" type="VmType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="CreateItem" type="VmType" minOccurs="0"
+                        maxOccurs="unbounded">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="RECOMPOSE_BLANK_VM"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="RECOMPOSE_BLANK_VM" /></xs:appinfo>
                             <xs:documentation source="since">RECOMPOSE_BLANK_VM</xs:documentation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -2762,7 +3087,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.CreateVmParams</meta:content-type>
             </xs:appinfo>
-            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="CREATE_BLANK_VM" /></xs:appinfo>
             <xs:documentation source="since">CREATE_BLANK_VM</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents VM creation parameters.
@@ -2823,7 +3148,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ComposeVAppParamsType">
                 <xs:sequence>
-                    <xs:element name="DeleteItem" type="ReferenceType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="DeleteItem" type="ReferenceType" minOccurs="0"
+                        maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -3188,7 +3514,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="StorageProfile" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="StorageProfile" type="ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -3202,7 +3528,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="LocalityParams" type="LocalityParamsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="LocalityParams" type="LocalityParamsType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -3215,10 +3541,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                            <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="HardwareCustomization" type="InstantiateVmHardwareCustomizationParamsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="HardwareCustomization"
+                        type="InstantiateVmHardwareCustomizationParamsType" minOccurs="0"
+                        maxOccurs="1">
                     <xs:annotation>
                         <xs:appinfo>
-                            <meta:version added-in="5.5"/>
+                            <meta:version added-in="5.5" />
                         </xs:appinfo>
                         <xs:documentation xml:lang="en">
                             Specification of common hardware parameters that
@@ -3425,7 +3753,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="NetworkMapping" type="NetworkMappingType"/>
+    <xs:element name="NetworkMapping" type="NetworkMappingType"></xs:element>
     <xs:complexType name="NetworkMappingType">
         <xs:annotation>
             <xs:appinfo>
@@ -3462,7 +3790,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="InstantiateOvfProperty" type="InstantiateOvfPropertyType"/>
+    <xs:element name="InstantiateOvfProperty" type="InstantiateOvfPropertyType"></xs:element>
     <xs:complexType name="InstantiateOvfPropertyType">
         <xs:annotation>
             <xs:appinfo>
@@ -3520,7 +3848,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="InstantiateVmParams" type="InstantiateVmParamsType"/>
+    <xs:element name="InstantiateVmParams" type="InstantiateVmParamsType"></xs:element>
     <xs:complexType name="InstantiateVmParamsType">
         <xs:annotation>
             <xs:appinfo>
@@ -3536,7 +3864,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="VCloudExtensibleType">
                 <xs:sequence>
-                    <xs:element name="NetworkConnectionSection" type="NetworkConnectionSectionType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="NetworkConnectionSection" type="NetworkConnectionSectionType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.5"/></xs:appinfo>
                             <xs:documentation>
@@ -3723,6 +4052,65 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     </xs:complexType>
 
     <xs:element name="CloneVAppParams" type="CloneVAppParamsType"/>
+
+    <xs:element name="MoveVAppParams" type="MoveVAppParamsType"/>
+    <xs:complexType name="MoveVAppParamsType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:version added-in="34.0"/>
+                <meta:content-type>application/vnd.vmware.vcloud.moveVAppParams</meta:content-type>
+            </xs:appinfo>
+            <xs:documentation source="since">34.0</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Parameters for a MoveVApp request.
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:complexContent>
+            <xs:extension base="ParamsType">
+                <xs:sequence>
+                    <xs:element name="Source" type="ReferenceType">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                A reference to a source vApp that will be moved.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ovf:Section">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                An ovf:Section_Type element that specifies vApp
+                                configuration on instantiate, compose, or
+                                recompose.
+                            </xs:documentation>
+                            <xs:documentation source="validSubstitutionElements">
+                                [http://www.vmware.com/vcloud/v1.5] NetworkConfigSection
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
+                    <xs:element name="SourcedItem" type="SourcedCompositionItemParamType" minOccurs="1" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Represents VM instantiation parameters of the VMs in the source vApp.
+                                SourceDelete is always ignored in the Move vApp context.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
     <xs:element name="DeployVAppParams" type="DeployVAppParamsType"/>
     <xs:complexType name="DeployVAppParamsType">
@@ -3941,7 +4329,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VdcComputePolicy" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VdcComputePolicy" type="ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                             <xs:documentation source="added-in">31.0</xs:documentation>
@@ -3968,7 +4356,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:documentation source="since">0.9</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents a question posted by a virtual machine that is
-                WAITING_FOR_INPUT (status="5").
+                WAITING_FOR_INPUT (status=&quot;5&quot;).
             </xs:documentation>
         </xs:annotation>
 
@@ -4016,7 +4404,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:documentation source="since">0.9</xs:documentation>
             <xs:documentation xml:lang="en">
                Represents the answer to a question posted by a virtual machine that is
-               WAITING_FOR_INPUT (status="5").
+               WAITING_FOR_INPUT (status=&quot;5&quot;).
             </xs:documentation>
         </xs:annotation>
 
@@ -4047,7 +4435,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:documentation source="since">0.9</xs:documentation>
             <xs:documentation xml:lang="en">
                Represents the answer to a question posted by a virtual machine that is
-               WAITING_FOR_INPUT (status="5").
+               WAITING_FOR_INPUT (status=&quot;5&quot;).
             </xs:documentation>
         </xs:annotation>
 
@@ -4073,7 +4461,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="RelocateParams" type="RelocateParamsType"/>
+    <xs:element name="RelocateParams" type="RelocateParamsType" />
     <xs:complexType name="RelocateParamsType">
         <xs:annotation>
             <xs:appinfo>
@@ -4099,7 +4487,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="CreateSnapshotParams" type="CreateSnapshotParamsType"/>
+    <xs:element name="CreateSnapshotParams" type="CreateSnapshotParamsType" />
     <xs:complexType name="CreateSnapshotParamsType">
         <xs:annotation>
             <xs:appinfo>
@@ -4193,7 +4581,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="DefaultStorageProfileSection" type="DefaultStorageProfileSection_Type" substitutionGroup="ovf:Section">
+    <xs:element name="DefaultStorageProfileSection"
+        type="DefaultStorageProfileSection_Type" substitutionGroup="ovf:Section">
     </xs:element>
 
     <xs:complexType name="DefaultStorageProfileSection_Type">
@@ -4230,7 +4619,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"></xs:any>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  #%L
-  vcd-rest-api-schemas :: vCloud Director REST API schemas
-  %%
-  Copyright (C) 2013 - 2019 VMware
-  %%
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  
-  1. Redistributions of source code must retain the above copyright notice,
-     this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
-  #L%
-  -->
-<!--
 Copyright © 2013 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -37,7 +9,16 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
---><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
+-->
+<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:meta="http://www.vmware.com/vcloud/meta"
+           jaxb:version="2.0"
+           jaxb:extensionBindingPrefixes="meta"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.vmware.com/vcloud/v1.5"
+           version="1.0">
 
     <xs:include schemaLocation="../vcloud/organization.xsd"/>
     <xs:include schemaLocation="../vcloud/vdc.xsd"/>
@@ -69,6 +50,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     <xs:complexType name="OrganizationReferencesType">
         <xs:annotation>
             <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation source="deprecated">36.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents the admin view of this cloud.
             </xs:documentation>
@@ -156,6 +138,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="RightReferences" type="RightReferencesType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
+                            <xs:documentation source="deprecated">33.0</xs:documentation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 A container for references to Right objects in the system.
@@ -165,6 +148,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                      <xs:element name="RoleReferences" type="RoleReferencesType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
+                            <xs:documentation source="deprecated">33.0</xs:documentation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 A container for references to Role objects in the system.
@@ -193,6 +177,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:content-type>application/vnd.vmware.admin.organization</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation source="deprecated">36.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents the admin view of an organization.
             </xs:documentation>
@@ -285,10 +270,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="RightReferences" type="OrganizationRightsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="RightReferences" type="OrganizationRightsType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="since">ORG_RIGHTS_ROLES
                             </xs:documentation>
+                            <xs:documentation source="deprecated">36.3</xs:documentation>
                             <xs:documentation source="modifiable">none
                             </xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -298,10 +285,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="RoleReferences" type="OrganizationRolesType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="RoleReferences" type="OrganizationRolesType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="since">ORG_RIGHTS_ROLES</xs:documentation>
-                            <xs:documentation source="deprecated">RBAC_2</xs:documentation>
+                            <xs:documentation source="deprecated">31.0</xs:documentation>
                             <xs:documentation source="modifiable">none
                             </xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -311,10 +299,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="RoleTemplateReferences" type="RoleReferencesType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="RoleTemplateReferences" type="RoleReferencesType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="since">ORG_RIGHTS_ROLES</xs:documentation>
-                            <xs:documentation source="deprecated">RBAC_2</xs:documentation>
+                            <xs:documentation source="deprecated">31.0</xs:documentation>
                             <xs:documentation source="modifiable">none
                             </xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -329,7 +318,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="OrgVAppTemplateLeaseSettings" type="OrgVAppTemplateLeaseSettingsType"/>
+    <xs:element name="OrgVAppTemplateLeaseSettings" type="OrgVAppTemplateLeaseSettingsType" />
     <xs:complexType name="OrgVAppTemplateLeaseSettingsType">
         <xs:annotation>
             <xs:appinfo>
@@ -413,7 +402,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     <xs:complexType name="VdcTemplateType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
                 <meta:content-type>application/vnd.vmware.admin.vdcTemplate</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">5.7</xs:documentation>
@@ -427,7 +416,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:element name="VdcTemplateSpecification" type="VdcTemplateSpecificationType">
                     <xs:annotation>
                         <xs:appinfo>
-                            <meta:version added-in="5.7"/>
+                            <meta:version added-in="5.7" />
                         </xs:appinfo>
                         <xs:documentation source="modifiable">none</xs:documentation>
                         <xs:documentation xml:lang="en">
@@ -450,7 +439,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.vdcTemplateList</meta:content-type>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation source="since">5.7</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -533,14 +522,41 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
-        </xs:sequence>
+            <xs:element name="IsElastic" type="xs:boolean" default="false" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:appinfo><meta:version added-in="35.0"/></xs:appinfo>
+                <xs:documentation source="added-in">35.0</xs:documentation>
+                <xs:documentation source="modifiable">always</xs:documentation>
+                <xs:documentation xml:lang="en">
+                  Set to true to indicate if the FLEX vDC is to
+                  be elastic. This field can only be set on input for FLEX vDC templates and Allocation VApp vDC templates.
+                  However, this field will be returned properly when read.
+                </xs:documentation>
+                <xs:documentation source="required">false</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="IncludeMemoryOverhead" type="xs:boolean" default="false" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:appinfo><meta:version added-in="35.0"/></xs:appinfo>
+                <xs:documentation source="added-in">35.0</xs:documentation>
+                <xs:documentation source="modifiable">always</xs:documentation>
+                <xs:documentation xml:lang="en">
+                  Set to true to indicate if the FLEX vDC is to
+                  include memory overhead into its accounting for admission control.
+                  This field can only be set on input for FLEX vDC templates and Allocation VApp vDC templates.
+                  However, this field will be returned properly when read.
+                </xs:documentation>
+                <xs:documentation source="required">false</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
     </xs:group>
 
     <xs:group name="AllocationPoolVdcSpecificationGroup">
         <xs:sequence>
             <xs:element name="CpuAllocationMhz" type="xs:long" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:appinfo><meta:version added-in="5.7"/></xs:appinfo>
+                    <xs:appinfo><meta:version added-in="5.7" /></xs:appinfo>
                     <xs:documentation source="added-in">5.7</xs:documentation>
                     <xs:documentation source="modifiable">none</xs:documentation>
                     <xs:documentation xml:lang="en">
@@ -619,7 +635,17 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="added-in">5.7</xs:documentation>
                     <xs:documentation source="modifiable">none</xs:documentation>
                     <xs:documentation xml:lang="en">
-                        CPU allocation in Mhz
+                        vCPU speed in Mhz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CpuLimitMhz" type="xs:long" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation source="added-in">35.2</xs:documentation>
+                    <xs:documentation source="since">35.2</xs:documentation>
+                    <xs:documentation source="modifiable">none</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        CPU limit in Mhz
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
@@ -629,6 +655,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="modifiable">none</xs:documentation>
                     <xs:documentation xml:lang="en">
                         Memory allocation in MB
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="MemoryLimitMb" type="xs:long" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation source="added-in">35.2</xs:documentation>
+                    <xs:documentation source="since">35.2</xs:documentation>
+                    <xs:documentation source="modifiable">none</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        Memory limit in Mb
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
@@ -674,6 +710,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="cpuLimitMhz" type="xs:long" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation source="added-in">35.2</xs:documentation>
+                    <xs:documentation source="since">35.2</xs:documentation>
+                    <xs:documentation source="modifiable">none</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        CPU limit in Mhz
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="MemoryAllocationMB" type="xs:long" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation source="added-in">5.7</xs:documentation>
@@ -686,21 +732,21 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:sequence>
     </xs:group>
 
-    <xs:complexType name="VdcTemplateSpecificationType" abstract="true">
+    <xs:complexType name="VdcTemplateSpecificationType" abstract="true" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
-            <xs:group ref="VdcSpecificationGroup"/>
+            <xs:group ref="VdcSpecificationGroup" />
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="AllocationPoolVdcTemplateSpecificationType" abstract="false">
+    <xs:complexType name="AllocationPoolVdcTemplateSpecificationType" abstract="false" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation xml:lang="en">
                 Specification for a VDC template using the AllocationPool allocation model.
@@ -710,36 +756,51 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:extension base="VdcTemplateSpecificationType">
 
                 <xs:sequence>
-                    <xs:group ref="AllocationPoolVdcSpecificationGroup"/>
+                    <xs:group ref="AllocationPoolVdcSpecificationGroup" />
                 </xs:sequence>
 
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="AllocationVappVdcTemplateSpecificationType" abstract="false">
+    <xs:complexType name="FlexVdcTemplateSpecificationType" abstract="false" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="35.0" />
+            </xs:appinfo>
+            <xs:documentation xml:lang="en">
+                Specification for a VDC template using the Flex allocation model.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="VdcTemplateSpecificationType" >
+                <xs:sequence>
+                    <xs:group ref="AllocationVAppVdcSpecificationGroup" />
+                </xs:sequence>
+
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="AllocationVappVdcTemplateSpecificationType" abstract="false" >
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation xml:lang="en">
                 Specification for a VDC template using the AllocationVApp allocation model.
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="VdcTemplateSpecificationType">
-                <xs:sequence>
-                    <xs:group ref="AllocationVAppVdcSpecificationGroup"/>
-                </xs:sequence>
-
+            <xs:extension base="FlexVdcTemplateSpecificationType" >
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ReservationPoolVdcTemplateSpecificationType" abstract="false">
+    <xs:complexType name="ReservationPoolVdcTemplateSpecificationType" abstract="false" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation xml:lang="en">
                 Specification for a VDC template using the ReservationPool allocation model.
@@ -748,7 +809,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="VdcTemplateSpecificationType">
                 <xs:sequence>
-                    <xs:group ref="ReservationPoolVdcSpecificationGroup"/>
+                    <xs:group ref="ReservationPoolVdcSpecificationGroup" />
                 </xs:sequence>
 
             </xs:extension>
@@ -919,7 +980,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="ExternalNetwork" type="ExternalNetworkType"/>
+    <xs:element name="ExternalNetwork" type="ExternalNetworkType" />
     <xs:complexType name="ExternalNetworkType">
         <xs:annotation>
             <xs:documentation source="since">1.0</xs:documentation>
@@ -930,7 +991,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="NetworkType">
                 <xs:sequence>
-                    <xs:element name="ProviderInfo" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="ProviderInfo" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -940,7 +1002,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="NetworkBackingInfo" type="NetworkBackingInfoType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="NetworkBackingInfo" type="NetworkBackingInfoType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1079,7 +1142,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
          </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="GeneralOrgSettings" type="OrgGeneralSettingsType"/>
+    <xs:element name="GeneralOrgSettings" type="OrgGeneralSettingsType" />
     <xs:complexType name="OrgGeneralSettingsType">
         <xs:annotation>
             <xs:appinfo>
@@ -1233,7 +1296,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="PowerOffOnRuntimeLeaseExpiration" type="xs:boolean" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="ORG_LEASE_EXPIRE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="ORG_LEASE_EXPIRE" /></xs:appinfo>
                             <xs:documentation source="since">25.0</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1288,7 +1351,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="Enabled" type="xs:boolean" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="5.1"/>
+                                <meta:version added-in="5.1" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1309,16 +1372,47 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 none
                             </xs:documentation>
                             <xs:documentation xml:lang="en">
-                                The expiration time of this org's certificate.
+                                The expiration time of this org's certificate. Deprecated in favor of SigningCertificateExpiration and EncryptionCertificateExpiration
                             </xs:documentation>
                             <xs:documentation source="since">5.6</xs:documentation>
+                            <xs:documentation source="deprecated">36.0</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SigningCertificateExpiration" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                        <xs:annotation xml:lang="en">
+                            <xs:appinfo>
+                                <meta:version added-in="36.0" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">
+                                none
+                            </xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The expiration time of this org's signing certificate.
+                            </xs:documentation>
+                            <xs:documentation source="since">36.0</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="EncryptionCertificateExpiration" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                        <xs:annotation xml:lang="en">
+                            <xs:appinfo>
+                                <meta:version added-in="36.0" />
+                            </xs:appinfo>
+                            <xs:documentation source="modifiable">
+                                none
+                            </xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The expiration time of this org's encryption certificate.
+                            </xs:documentation>
+                            <xs:documentation source="since">36.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="SamlSPEntityId" type="xs:anyURI" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1333,7 +1427,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="RoleAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="7.0" removed-in="31.0"/>
+                                <meta:version added-in="7.0" removed-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1356,23 +1450,48 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 The names of SAML attributes used to populate user profiles.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="SamlSPKeyAndCertificateChain" type="SamlSPKeyAndCertificateChainType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="SamlSPKeyAndCertificateChain" type="SamlSPKeyAndCertificateChainType"
+                    minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="24.0"/>
+                                <meta:version added-in="24.0" removed-in="36.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">24.0</xs:documentation>
+                            <xs:documentation source="removed-in">36.0</xs:documentation>
                             <xs:documentation source="modifiable">update</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Container for an organization's PEM-encoded private key and certificate chain.
                                 The private key and the public key from the leaf certificate are used
-                                during SAML message processing. Not returned on GET
+                                during SAML message processing. Not returned on GET. Removed in 36.0 in favor of
+                                SigningCertLibraryItemId
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SigningCertLibraryItemId" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="since">36.0</xs:documentation>
+                            <xs:documentation source="modifiable">update</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                UUID of a CertificateLibraryItem containing a certificate chain and private key for SAML signing
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="EncryptionCertLibraryItemId" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="since">36.0</xs:documentation>
+                            <xs:documentation source="modifiable">update</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                UUID of a CertificateLibraryItem containing a certificate chain and private key for SAML encryption
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -1390,7 +1509,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.admin.samlAttributeMappingType</meta:content-type>
-                <meta:version added-in="31.0"/>
+                <meta:version added-in="31.0" />
             </xs:appinfo>
             <xs:documentation source="since">31.0</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -1403,7 +1522,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="EmailAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1418,7 +1537,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="UserNameAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1433,7 +1552,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="FirstNameAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1448,7 +1567,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="SurnameAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1463,7 +1582,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="FullNameAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1478,7 +1597,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="GroupAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1494,7 +1613,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="RoleAttributeName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation xml:lang="en">
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 always
@@ -1514,7 +1633,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     <xs:complexType name="SamlSPKeyAndCertificateChainType">
          <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="24.0"/>
+                <meta:version added-in="24.0" />
                 <meta:content-type>application/vnd.vmware.admin.samlSPKeyAndCertificate
                 </meta:content-type>
             </xs:appinfo>
@@ -1529,7 +1648,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ResourceType">
                 <xs:sequence>
-                    <xs:element name="Key" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:element name="Key" type="xs:string"
+                        minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">update</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1539,7 +1659,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CertificateChain" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:element name="CertificateChain"
+                        type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">update</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1575,6 +1696,19 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ResourceType">
                 <xs:sequence>
+                    <xs:element name="OrgRedirectUri" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                OAuth redirect URI for this org. This value is read only
+                            </xs:documentation>
+                            <xs:documentation source="since">36.0</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.0" />
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="IssuerId" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -1614,7 +1748,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Client Id for vCD to use when talking to the Identity Provider.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1627,7 +1761,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Client Secret for vCD to use when talking to the Identity Provider.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1640,7 +1774,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Identity Provider's OpenId Connect user authorization endpoint.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1653,7 +1787,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Identity Provider's OpenId Connect access token endpoint.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1666,7 +1800,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Identity Provider's OpenId Connect user info endpoint.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1679,7 +1813,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Identity Provider's SCIM user information endpoint.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1692,7 +1826,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Scope that vCD needs access to for authenticating the user.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1707,7 +1841,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Custom claim keys for the /userinfo endpoint
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1720,9 +1854,145 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Allowed difference between token expiration and vCD system time in seconds.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="JwksUri" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Endpoint to fetch the keys from.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2" />
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="AutoRefreshKey" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Flag indicating whether VCD should auto-refresh the keys.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2" />
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="KeyRefreshStrategy" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Strategy to use when updated list of keys does not include keys known to VCD.
+                                The values must be one of the below:
+                                ADD: Will add new keys to set of keys that VCD will use.
+                                REPLACE: The retrieved list of keys will replace the existing list of keys and will become
+                                         the definitive list of keys used by VCD going forward.
+                                EXPIRE_AFTER: Keys known to VCD that are no longer returned by the OIDC server will be marked as expired,
+                                              'KeyExpireDurationInHours' specified hours after the key refresh is performed.
+                                               After that later time, VCD will no longer use the keys.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2" />
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="KeyRefreshFrequencyInHours" minOccurs="0" maxOccurs="1">
+                        <xs:annotation xml:lang="en">
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Time interval, in hours, between subsequent key refresh attempts
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2" />
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:int">
+                                <xs:minInclusive value="1"></xs:minInclusive>
+                                <xs:maxInclusive value="720"></xs:maxInclusive>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="KeyExpireDurationInHours" minOccurs="0" maxOccurs="1">
+                        <xs:annotation xml:lang="en">
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Duration in which the keys are set to expire.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2" />
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:int">
+                                <xs:minInclusive value="1"></xs:minInclusive>
+                                <xs:maxInclusive value="24"></xs:maxInclusive>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="WellKnownEndpoint" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Endpoint from the provider that serves OpenID Connect configuration values.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2" />
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="LastKeyRefreshAttempt" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                        <xs:annotation xml:lang="en">
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Last time refresh of the keys was attempted.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2"/>
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="LastKeySuccessfulRefresh" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                        <xs:annotation xml:lang="en">
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Last time refresh of the keys was successful.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="36.2"/>
+                            </xs:appinfo>
+                            <xs:documentation source="since">36.2</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="EnableIdTokenClaims" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Flag indicating whether Id-Token Claims should be used when establishing user details.
+                            </xs:documentation>
+                            <xs:appinfo>
+                                <meta:version added-in="37.1" />
+                            </xs:appinfo>
+                            <xs:documentation source="since">37.1</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
@@ -1741,7 +2011,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.admin.oidcAttributeMappingType</meta:content-type>
-                <meta:version added-in="31.0"/>
+                <meta:version added-in="31.0" />
             </xs:appinfo>
             <xs:documentation source="since">31.0</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -1758,7 +2028,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 The name of the OIDC attribute used to get the username from the IDP's userInfo
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1771,7 +2041,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 The name of the OIDC attribute used to get the email from the IDP's userInfo
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1785,7 +2055,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 The full name attribute overrides the use of the firstName and lastName attributes.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1799,7 +2069,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 This is only used if the Full Name key is not specified.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1813,7 +2083,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 This is only used if the Full Name key is not specified.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1826,7 +2096,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 The name of the OIDC attribute used to get the user's groups from the IDP's userInfo.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1839,7 +2109,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 The name of the OIDC attribute used to get the user's roles from the IDP's userInfo.
                             </xs:documentation>
                             <xs:appinfo>
-                                <meta:version added-in="31.0"/>
+                                <meta:version added-in="31.0" />
                             </xs:appinfo>
                             <xs:documentation source="since">31.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
@@ -1859,7 +2129,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.admin.oauthKeyConfigurationsList</meta:content-type>
-                <meta:version added-in="9.0"/>
+                <meta:version added-in="9.0" />
             </xs:appinfo>
             <xs:documentation source="since">9.0</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -1894,7 +2164,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.vcloud.admin.oauthKeyConfiguration</meta:content-type>
-                <meta:version added-in="9.0"/>
+                <meta:version added-in="9.0" />
             </xs:appinfo>
             <xs:documentation source="since">9.0</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -1938,6 +2208,87 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 Expiration date for this key. If specified, tokens signed with this key should be considered invalid after this time.
                             </xs:documentation>
                             <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="OpenIdProviderInfo" type="OpenIdProviderInfoType">
+        <xs:annotation>
+            <xs:documentation source="since">36.0</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="OpenIdProviderInfoType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:content-type>application/vnd.vmware.vcloud.admin.openIdProviderInfo</meta:content-type>
+                <meta:version added-in="36.0" />
+            </xs:appinfo>
+            <xs:documentation source="since">36.0</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Information about the openId connect provider for creating initial org oauth settings
+            </xs:documentation>
+        </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="ResourceType">
+                    <xs:sequence>
+                        <xs:element name="OpenIdProviderConfigurationEndpoint" type="xs:string" minOccurs="1" maxOccurs="1">
+                            <xs:annotation>
+                                <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                URL for the OAuth IDP well known openId connect configuration endpoint
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="OpenIdProviderConfiguration" type="OpenIdProviderConfigurationType">
+        <xs:annotation>
+            <xs:documentation source="since">36.0</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="OpenIdProviderConfigurationType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:content-type>application/vnd.vmware.vcloud.admin.openIdProviderConfiguration</meta:content-type>
+                <meta:version added-in="36.0" />
+            </xs:appinfo>
+            <xs:documentation source="since">36.0</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Result from reading the IDP's openId provider config endpoint
+            </xs:documentation>
+        </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="ResourceType">
+                    <xs:sequence>
+                        <xs:element name="OrgOAuthSettings" type="OrgOAuthSettingsType" minOccurs="0" maxOccurs="1">
+                            <xs:annotation xml:lang="en">
+                                <xs:documentation source="modifiable">
+                                    none
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en">
+                                    OrgOauthSettings object configured using information from the IDP
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <meta:version added-in="36.0" />
+                                </xs:appinfo>
+                                <xs:documentation source="since">36.0</xs:documentation>
+                                <xs:documentation source="required">false</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ProviderConfigResponse" type="xs:string" minOccurs="0" maxOccurs="1">
+                            <xs:annotation>
+                                <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Raw response from the IDP's provider config endpoint
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -2051,20 +2402,32 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="IsSslAcceptAll" type="xs:boolean" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version removed-in="36.0"/>
+                            </xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 True if the LDAP service accepts all SSL certificates.
+                                This has been removed in API version 36.0. In API versions
+                                less than 36.0 this field will always return false.
                             </xs:documentation>
+                            <xs:documentation source="removed">36.0</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="CustomTruststore" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
-                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation source="deprecated">34.0</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Optional Custom Trustsore for the LDAP HostName.
+                                Optional Custom Truststore for the LDAP HostName. Until it is removed
+                                the certificate can still be set here, however this field will
+                                always be null on return. This field is under
+                                accelerated deprecation and will be removed more quickly than the
+                                normal deprecation cycle. In order to manage LDAP certificates, please
+                                instead use the Centralized SSL management API.
                             </xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
@@ -2117,13 +2480,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 &lt;b&gt;SIMPLE&lt;/b&gt; (Simple
                                 authentication as specified in RFC 2251 and RFC
                                 2829.)&lt;br&gt;
-                                &lt;b&gt;KERBEROS&lt;/b&gt; (Kerberos
-                                authentication)&lt;br&gt;
                                 &lt;b&gt;MD5DIGEST&lt;/b&gt; (Digest MD5
                                 authentication as specified in RFC 2831.)
                                 &lt;br&gt;
                                 &lt;b&gt;NTLM&lt;/b&gt; (Windows NTLM
-                                authentication.)
+                                authentication.)&lt;br&gt;
+                                Kerberos support has been removed.&lt;/b&gt;
                            </xs:documentation>
                            <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
@@ -2179,10 +2541,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="UseExternalKerberos" type="xs:boolean" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="5.1" removed-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="deprecated">34.0</xs:documentation>
+                            <xs:documentation source="removed-in">36.0</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Set to true to use an external Kerberos service.
+                                Set to true to use an external Kerberos service. &lt;em&gt; Kerberos
+                                support has been removed.&lt;/em&gt;
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -2379,7 +2744,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="OrgEmailSettings" type="OrgEmailSettingsType"/>
+    <xs:element name="OrgEmailSettings" type="OrgEmailSettingsType" />
     <xs:complexType name="OrgEmailSettingsType">
         <xs:annotation>
             <xs:appinfo>
@@ -2531,7 +2896,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="SmtpSecureMode" type="SmtpSecureModeType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="11.0"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="11.0" /></xs:appinfo>
                             <xs:documentation source="since">11.0</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -2545,7 +2910,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="SslTrustStore" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="11.0"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="11.0" /></xs:appinfo>
                             <xs:documentation source="since">11.0</xs:documentation>
                             <xs:documentation xml:lang="en">
                                  Custom truststore to use to trust peer certificates when establishing a secure connection using SSL/STARTTLS (when enabled).
@@ -2559,7 +2924,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="OrgPasswordPolicySettings" type="OrgPasswordPolicySettingsType"/>
+    <xs:element name="OrgPasswordPolicySettings" type="OrgPasswordPolicySettingsType" />
     <xs:complexType name="OrgPasswordPolicySettingsType">
         <xs:annotation>
             <xs:appinfo>
@@ -2646,12 +3011,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="RemoteUriProbeResult" type="RemoteUriProbeResultType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="31.0" removed-in="35.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Result of probing remote URL
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
+                            <xs:documentation source="since">31.0</xs:documentation>
+                            <xs:documentation source="deprecated">35.0</xs:documentation>
+                            <xs:documentation source="removed-in">35.0</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="PublishExternalCatalogParams" type="PublishExternalCatalogParamsType" minOccurs="0" maxOccurs="1">
@@ -2775,7 +3143,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                              <xs:appinfo><meta:version added-in="5.5"/></xs:appinfo>
                              <xs:documentation source="modifiable">always</xs:documentation>
                              <xs:documentation xml:lang="en">
-                                 Password required by the endpoint.
+                                 Password required when connecting to the endpoint.
+                                 Passing in six asterisks '******' indicates to keep current password.
+                                 Passing in null or empty string indicates to remove password.
                              </xs:documentation>
                              <xs:documentation source="required">false</xs:documentation>
                          </xs:annotation>
@@ -2783,11 +3153,14 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="ExpectedSslThumbprint" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.5"/></xs:appinfo>
-                            <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Expected SSL thumbprint of the endpoint.
+                                This field, formerly used to communicate expected SSL thumbprint of the remote catalog,
+                                is no longer used as of VMware Cloud Director 10.2 (Api version 35.0).
+                                Supplied value will be ignored.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation source="deprecated">37.1</xs:documentation>
                          </xs:annotation>
                      </xs:element>
                      <xs:element name="LocalCopy" type="xs:boolean" minOccurs="0" maxOccurs="1">
@@ -2795,18 +3168,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                              <xs:appinfo><meta:version added-in="5.5"/></xs:appinfo>
                              <xs:documentation source="modifiable">always</xs:documentation>
                              <xs:documentation xml:lang="en">
-                                  If true, synchronization creates a local copy
-                                  of all items. Defaults to false, which
-                                  defers creation of the local copy until the
-                                  item is required by an operation such as
-                                  instantiation.
+                                  If true, subcription to a catalog creates a local copy
+                                  of all items. Defaults to false, which does not create
+                                  a local copy of catalogItems unless sync operation is performed.
                               </xs:documentation>
                               <xs:documentation source="required">false</xs:documentation>
                           </xs:annotation>
                       </xs:element>
                       <xs:element name="LibraryId" type="xs:string" minOccurs="0" maxOccurs="1">
                          <xs:annotation>
-                             <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
+                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                              <xs:documentation source="modifiable">always</xs:documentation>
                              <xs:documentation xml:lang="en">
                                   When library exists locally, include library id
@@ -2821,32 +3192,36 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     <xs:simpleType name="RemoteUriProbeResultStatus">
         <xs:annotation>
-            <xs:documentation source="internal"/>
-            <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
-            <xs:documentation source="since">PROBE_REMOTE_LIBRARY</xs:documentation>
+            <xs:documentation source="internal" />
+            <xs:appinfo><meta:version added-in="31.0" removed-in="35.0" /></xs:appinfo>
+            <xs:documentation source="since">31.0</xs:documentation>
+            <xs:documentation source="deprecated">35.0</xs:documentation>
+            <xs:documentation source="removed-in">35.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 The enumerated status of the remote URI probe result
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="SUCCESS"/>
-            <xs:enumeration value="INVALID_URL_OR_PASSWORD"/>
-            <xs:enumeration value="TIMED_OUT"/>
-            <xs:enumeration value="HOST_NOT_FOUND"/>
-            <xs:enumeration value="RESOURCE_NOT_FOUND"/>
-            <xs:enumeration value="CERTIFICATE_ERROR"/>
-            <xs:enumeration value="UNKNOWN_ERROR"/>
+            <xs:enumeration value="SUCCESS" />
+            <xs:enumeration value="INVALID_URL_OR_PASSWORD" />
+            <xs:enumeration value="TIMED_OUT" />
+            <xs:enumeration value="HOST_NOT_FOUND" />
+            <xs:enumeration value="RESOURCE_NOT_FOUND" />
+            <xs:enumeration value="CERTIFICATE_ERROR" />
+            <xs:enumeration value="UNKNOWN_ERROR" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:element name="RemoteUriProbeResult" type="RemoteUriProbeResultType"/>
     <xs:complexType name="RemoteUriProbeResultType">
         <xs:annotation>
-            <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
+            <xs:appinfo><meta:version added-in="31.0" removed-in="35.0"/></xs:appinfo>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.remoteProbeResult</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="since">PROBE_REMOTE_LIBRARY</xs:documentation>
+            <xs:documentation source="since">31.0</xs:documentation>
+            <xs:documentation source="deprecated">35.0</xs:documentation>
+            <xs:documentation source="removed-in">35.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Test the library subscription settings to make sure the remote endpoint exists, the password
                 matches (if set), and the SSL certificate is trusted (if necessary).
@@ -2858,7 +3233,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:sequence>
                     <xs:element name="Status" type="RemoteUriProbeResultStatus" minOccurs="0" maxOccurs="1">
                          <xs:annotation>
-                             <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
+                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                              <xs:documentation source="modifiable">always</xs:documentation>
                              <xs:documentation xml:lang="en">
                                   Result status of the remote uri probe
@@ -2868,7 +3243,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                       </xs:element>
                      <xs:element name="ErrorMessage" type="xs:string" minOccurs="0" maxOccurs="1">
                          <xs:annotation>
-                             <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
+                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                              <xs:documentation source="modifiable">always</xs:documentation>
                              <xs:documentation xml:lang="en">
                                  Error message returned from remote URL
@@ -2878,7 +3253,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                      </xs:element>
                     <xs:element name="SslThumbprint" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Thumbprint of SSL certificate
@@ -2888,7 +3263,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                      </xs:element>
                     <xs:element name="SslCertificateEncoded" type="xs:base64Binary" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="PROBE_REMOTE_LIBRARY"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 SSL Certificate, if required. XSD formats byte[] as base64binary
@@ -2946,8 +3321,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                              <xs:appinfo><meta:version added-in="5.5"/></xs:appinfo>
                              <xs:documentation source="modifiable">always</xs:documentation>
                              <xs:documentation xml:lang="en">
-                                 Password required when connecting to the
-                                 endpoint.
+                                 Password required when connecting to the endpoint.
+                                 Passing in six asterisks '******' indicates to keep current password.
+                                 Passing in null or empty string indicates to remove password.
                              </xs:documentation>
                              <xs:documentation source="required">false</xs:documentation>
                          </xs:annotation>
@@ -3157,15 +3533,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-	<xs:element name="OrgRights" type="OrganizationRightsType"/>
+	<xs:element name="OrgRights" type="OrganizationRightsType" />
 	<xs:complexType name="OrganizationRightsType">
 		<xs:annotation>
 			<xs:appinfo>
-				<meta:version added-in="ORG_RIGHTS_ROLES"/>
+				<meta:version added-in="ORG_RIGHTS_ROLES" />
 				<meta:content-type>application/vnd.vmware.admin.org.rights</meta:content-type>
 			</xs:appinfo>
 			<xs:documentation source="since">ORG_RIGHTS_ROLES</xs:documentation>
-			<xs:documentation source="deprecated">RBAC_2</xs:documentation>
+			<xs:documentation source="deprecated">31.0</xs:documentation>
 			<xs:documentation xml:lang="en">
 				Represents all the rights that have been granted to an organization.
 			</xs:documentation>
@@ -3173,7 +3549,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 		<xs:complexContent>
 			<xs:extension base="ResourceType">
                  <xs:sequence>
-                    <xs:element name="RightReference" type="ReferenceType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="RightReference" type="ReferenceType" minOccurs="0"
+                    maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -3186,14 +3563,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-    <xs:element name="OrgRoles" type="OrganizationRolesType"/>
+    <xs:element name="OrgRoles" type="OrganizationRolesType" />
     <xs:complexType name="OrganizationRolesType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="ORG_RIGHTS_ROLES"/>
+                <meta:version added-in="ORG_RIGHTS_ROLES" />
                 <meta:content-type>application/vnd.vmware.admin.org.roles</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">ORG_RIGHTS_ROLES</xs:documentation>
+            <xs:documentation source="deprecated">36.3</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents all the roles available in an organization.
             </xs:documentation>
@@ -3201,7 +3579,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ResourceType">
                 <xs:sequence>
-                    <xs:element name="RoleReference" type="ReferenceType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="RoleReference" type="ReferenceType" minOccurs="0"
+                    maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">

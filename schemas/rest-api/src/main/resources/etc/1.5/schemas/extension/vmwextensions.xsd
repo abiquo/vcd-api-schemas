@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  #%L
-  vcd-rest-api-schemas :: vCloud Director REST API schemas
-  %%
-  Copyright (C) 2013 - 2019 VMware
-  %%
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  
-  1. Redistributions of source code must retain the above copyright notice,
-     this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
-  #L%
-  -->
-<!--
 Copyright © 2013-2016 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -37,11 +9,36 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
---><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/extension/v1.5" xmlns:vcloud="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/extension/v1.5" version="1.0"><xs:import namespace="http://www.vmware.com/vcloud/v1.5"/><xs:include schemaLocation="notification.xsd"/><xs:include schemaLocation="settings.xsd"/><xs:include schemaLocation="taskExtensionRequest.xsd"/><xs:include schemaLocation="services.xsd"/><xs:include schemaLocation="objectExtensibility.xsd"/><xs:annotation>
+-->
+<xs:schema xmlns="http://www.vmware.com/vcloud/extension/v1.5"
+           xmlns:vcloud="http://www.vmware.com/vcloud/v1.5"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:meta="http://www.vmware.com/vcloud/meta"
+           jaxb:version="2.0"
+           jaxb:extensionBindingPrefixes="meta"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.vmware.com/vcloud/extension/v1.5"
+           version="1.0">
+
+           <xs:import namespace="http://www.vmware.com/vcloud/v1.5" schemaLocation="../master/master.xsd"/>
+    <!-- note the absence of a schemaLocation in the above import to please the doc-generator -->
+
+    <xs:include schemaLocation="notification.xsd"/>
+    <xs:include schemaLocation="settings.xsd"/>
+    <xs:include schemaLocation="taskExtensionRequest.xsd"/>
+    <xs:include schemaLocation="services.xsd"/>
+    <xs:include schemaLocation="objectExtensibility.xsd"/>
+    <xs:include schemaLocation="../internal/internal.xsd"/>
+
+    <xs:annotation>
         <xs:documentation xml:lang="en">
             Schema for VMware's specific extensions of the vCloud API
         </xs:documentation>
-    </xs:annotation><xs:element name="VMWExtension" type="VMWExtensionType"/><xs:complexType name="VMWExtensionType">
+    </xs:annotation>
+
+    <xs:element name="VMWExtension" type="VMWExtensionType"/>
+    <xs:complexType name="VMWExtensionType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwExtension</meta:content-type>
@@ -55,7 +52,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:extension base="vcloud:ResourceType">
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="ResourcePoolType">
+    </xs:complexType>
+
+    <xs:complexType name="ResourcePoolType">
         <xs:annotation>
             <xs:documentation source="since">0.9</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -100,7 +99,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="PrepareHostParams" type="PrepareHostParamsType"/><xs:complexType name="PrepareHostParamsType">
+    </xs:complexType>
+
+    <xs:element name="PrepareHostParams" type="PrepareHostParamsType"/>
+    <xs:complexType name="PrepareHostParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.prepareHostParams</meta:content-type>
@@ -134,7 +136,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="ServerType">
+    </xs:complexType>
+
+    <xs:complexType name="ServerType">
         <xs:annotation>
             <xs:documentation source="since">0.9</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -175,7 +179,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="RegisterVimServerParams" type="RegisterVimServerParamsType"/><xs:complexType name="RegisterVimServerParamsType">
+    </xs:complexType>
+
+    <xs:element name="RegisterVimServerParams" type="RegisterVimServerParamsType"/>
+    <xs:complexType name="RegisterVimServerParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.registerVimServerParams</meta:content-type>
@@ -207,7 +214,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="NsxTManagers" type="NsxTManagersType"/><xs:complexType name="NsxTManagersType">
+    </xs:complexType>
+
+    <xs:element name="NsxTManagers" type="NsxTManagersType"/>
+	<xs:complexType name="NsxTManagersType">
 		<xs:annotation>
 			<xs:appinfo>
 				<meta:version added-in="NSX_T_SUPPORT"/>
@@ -221,7 +231,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 		<xs:complexContent>
 			<xs:extension base="vcloud:ResourceType">
 				<xs:sequence>
-					<xs:element name="NsxTManager" type="NsxTManagerType" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="NsxTManager" type="NsxTManagerType"
+						minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation source="modifiable">always</xs:documentation>
 							<xs:documentation xml:lang="en">
@@ -234,7 +245,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-    </xs:complexType><xs:element name="VimServer" type="VimServerType"/><xs:complexType name="VimServerType">
+    </xs:complexType>
+    <xs:element name="VimServer" type="VimServerType"/>
+    <xs:complexType name="VimServerType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwvirtualcenter</meta:content-type>
@@ -285,6 +298,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Public label of this vCenter server visible to all tenants.
+                                If this is changed, the compute provider scope of all child Provider VDCs will be reset to the new value.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -320,6 +334,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="VsmVersion" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Version of the NSX-V Manager
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="Uuid" type="xs:string" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation source="since">1.5</xs:documentation>
@@ -335,9 +359,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                The name of the cell used as a proxy for the VIM server.
+                                Deprecated.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
+                            <xs:documentation source="deprecated">37.1</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="VcVersion" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -370,10 +395,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="tenantScoped" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                    <xs:element name="tenantScoped"
+                        type="xs:boolean" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="CPOM"/>
+                                <meta:version added-in="CPOM" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 none
@@ -389,10 +415,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="providerScoped" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                    <xs:element name="providerScoped"
+                        type="xs:boolean" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="CPOM"/>
+                                <meta:version added-in="CPOM" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">
                                 none
@@ -411,7 +438,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                The vcenter listener state.
+                                The vcenter listener state. One of { INITIAL, INVALID_SETTINGS, UNSUPPORTED,
+                                DISCONNECTED, CONNECTING, CONNECTED_SYNCING, CONNECTED, STOP_REQ,
+                                STOP_AND_PURGE_REQ, STOP_ACK }.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -431,9 +460,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                              When present, indicate that the vCenter server should be proxied by vCloud Director.
-                              Setting this to true when registering a vCenter will result in the vCenter being proxied.
-                              After the vCenter is registered, this can be updated to enable/disable proxying.
+                              When present, indicates that a proxy exists within vCloud Director that proxies this vCenter server
+                              for access by authorized end-users. Setting this field to true when registering a vCenter server
+                              will result in a proxy being created for the vCenter server, and another
+                              for the corresponding SSO endpoint (if different from the vCenter server's endpoint).
+                              This field is immutable after the vCenter Server is registered, and will be updated by the system
+                              when/if the proxy is removed.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -573,7 +605,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWVimServerReferences" type="VMWVimServerReferencesType"/><xs:complexType name="VMWVimServerReferencesType">
+    </xs:complexType>
+
+    <xs:element name="VMWVimServerReferences" type="VMWVimServerReferencesType"/>
+    <xs:complexType name="VMWVimServerReferencesType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwVimServerReferences</meta:content-type>
@@ -599,7 +634,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="NsxTManager" type="NsxTManagerType"/><xs:complexType name="NsxTManagerType">
+    </xs:complexType>
+
+    <xs:element name="NsxTManager" type="NsxTManagerType"/>
+    <xs:complexType name="NsxTManagerType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="NSX_T_SUPPORT"/>
@@ -616,7 +654,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="DeploymentType" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="SERVICE_APPS"/></xs:appinfo>
-                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation source="modifiable">create</xs:documentation>
                             <xs:documentation source="since">SERVICE_APPS</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 How the NSX-T Manager is deployed.
@@ -641,25 +679,49 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation source="since">SERVICE_APPS</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Reference to Service Application that owners this NSX-T Manager.
+                                Reference to Service Application that owns this NSX-T Manager.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="NetworkProviderScope" type="xs:string" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation xml:lang="en">
+                            Public label of this NSX-T server visible to all tenants.
+                        </xs:documentation>
+                        <xs:documentation source="required">false</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Version" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Public label of this NSX-T server visible to all tenants.
+                                Version of the NsxT Manager.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="ProxyConfigurationReference" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Reference to Proxy Configuration to use for contacting this NSX-T Manager.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <!-- @todo https://jira.eng.vmware.com/browse/VCDNET-12676 (hufnaglew) Add GlobalManager and LocalNsxTManagerRef back. -->
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="ShieldManager" type="ShieldManagerType"/><xs:complexType name="ShieldManagerType">
+    </xs:complexType>
+
+    <xs:element name="ShieldManager" type="ShieldManagerType"/>
+    <xs:complexType name="ShieldManagerType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vshieldmanager</meta:content-type>
@@ -697,7 +759,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:appinfo><meta:version added-in="31.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Path to the resource pool to use for creating DLR virtual appliance within vCenter.
+                                Path to the resource pool to use for creating Control VM for Cross-VDC Networking.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -707,7 +769,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:appinfo><meta:version added-in="30.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Name of the Datastore to use for creating DLR virtual appliance.
+                              Name of the Datastore to use for creating Control VM for Cross-VDC Networking.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -717,7 +779,17 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:appinfo><meta:version added-in="30.0"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Name of the management interface to use for creating DLR virtual appliance.
+                                Name of the management interface to use for creating Control VM for Cross-VDC Networking.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SoftwareVersion" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Version of the NSX-V Manager
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -725,7 +797,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VmObjectRefsList" type="VmObjectRefsListType"/><xs:complexType name="VmObjectRefsListType">
+    </xs:complexType>
+
+    <xs:element name="VmObjectRefsList" type="VmObjectRefsListType"/>
+    <xs:complexType name="VmObjectRefsListType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmsObjectRefsList</meta:content-type>
@@ -764,7 +839,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:documentation source="required">false</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-    </xs:complexType><xs:complexType name="VmObjectRefType">
+    </xs:complexType>
+
+    <xs:complexType name="VmObjectRefType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmObjectRef</meta:content-type>
@@ -787,7 +864,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="DiskDatastoreType">
+    </xs:complexType>
+
+    <xs:complexType name="DiskDatastoreType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmDiskObjectRef</meta:content-type>
@@ -813,7 +892,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="ImportedDiskType">
+    </xs:complexType>
+
+    <xs:complexType name="ImportedDiskType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.6"/>
@@ -827,7 +908,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="vcloud:VCloudExtensibleType">
                 <xs:sequence>
-                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.6"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -860,7 +941,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="ImportVmParams" type="ImportVmParamsType"/><xs:complexType name="ImportVmParamsType">
+    </xs:complexType>
+
+    <xs:element name="ImportVmParams" type="ImportVmParamsType"/>
+    <xs:complexType name="ImportVmParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="IMPORT_VM_STANDALONE"/>
@@ -910,7 +994,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -950,7 +1034,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="ImportVmAsVAppParams" type="ImportVmAsVAppParamsType"/><xs:complexType name="ImportVmAsVAppParamsType">
+    </xs:complexType>
+
+    <xs:element name="ImportVmAsVAppParams" type="ImportVmAsVAppParamsType"/>
+    <xs:complexType name="ImportVmAsVAppParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.importVmAsVAppParams</meta:content-type>
@@ -999,7 +1086,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -1042,7 +1129,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="ImportVmIntoExistingVAppParams" type="ImportVmIntoExistingVAppParamsType"/><xs:complexType name="ImportVmIntoExistingVAppParamsType">
+    </xs:complexType>
+
+    <xs:element name="ImportVmIntoExistingVAppParams" type="ImportVmIntoExistingVAppParamsType" />
+    <xs:complexType name="ImportVmIntoExistingVAppParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.importVmIntoExistingVAppParams</meta:content-type>
@@ -1055,7 +1145,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="vcloud:VCloudExtensibleType">
                 <xs:sequence>
-                    <xs:element name="VmName" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:element name="VmName" type="xs:string"
+                        minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -1065,7 +1156,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VmDescription" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -1075,7 +1167,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VAppScopedLocalId" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VAppScopedLocalId"
+                        type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -1086,7 +1179,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ComputerName" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="ComputerName" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -1096,7 +1190,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmMoRef" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:element name="VmMoRef" type="xs:string"
+                        minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -1106,7 +1201,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType"  minOccurs="0"  maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -1116,7 +1211,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VApp" type="vcloud:ReferenceType" minOccurs="1" maxOccurs="1">
+                    <xs:element name="VApp" type="vcloud:ReferenceType"
+                        minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -1139,7 +1235,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
-                <xs:attribute name="sourceMove" type="xs:boolean" default="false" use="optional">
+                <xs:attribute name="sourceMove" type="xs:boolean"
+                    default="false" use="optional">
                     <xs:annotation>
                         <xs:documentation source="modifiable">always
                         </xs:documentation>
@@ -1152,7 +1249,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="ImportVmAsVAppTemplateParams" type="ImportVmAsVAppTemplateParamsType"/><xs:complexType name="ImportVmAsVAppTemplateParamsType">
+    </xs:complexType>
+
+    <xs:element name="ImportVmAsVAppTemplateParams" type="ImportVmAsVAppTemplateParamsType"/>
+    <xs:complexType name="ImportVmAsVAppTemplateParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.importVmAsVAppTemplateParams</meta:content-type>
@@ -1201,13 +1301,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="Vdc" type="vcloud:ReferenceType" minOccurs="1" maxOccurs="1">
+                    <xs:element name="Vdc" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Target vDC for imported vApp template.
+                                Target vDC for imported vApp template. This is optional. If not provided,
+                                catalog's VDC will be picked randomly if catalog is not specifically using
+                                a VDC for storage.
                             </xs:documentation>
-                            <xs:documentation source="required">true</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="VdcStorageProfile" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
@@ -1225,7 +1327,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Catalog in which the imported vApp template
-                                will be listed.
+                                will be listed. This is optional, but either VDC or catalog
+                                must be provided.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -1253,7 +1356,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="ImportMediaParams" type="ImportMediaParamsType"/><xs:complexType name="ImportMediaParamsType">
+    </xs:complexType>
+
+    <xs:element name="ImportMediaParams" type="ImportMediaParamsType"/>
+    <xs:complexType name="ImportMediaParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.importMediaParams</meta:content-type>
@@ -1331,7 +1437,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="Host" type="HostType"/><xs:complexType name="HostType">
+    </xs:complexType>
+
+    <xs:element name="Host" type="HostType"/>
+    <xs:complexType name="HostType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.host</meta:content-type>
@@ -1344,7 +1453,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="vcloud:EntityType">
                 <xs:sequence>
-                    <xs:element name="Ready" type="xs:boolean" minOccurs="0">
+                    <xs:element name="Ready" type="xs:boolean" minOccurs ="0">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1363,7 +1472,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="Enabled" type="xs:boolean" minOccurs="0">
+                    <xs:element name="Enabled" type="xs:boolean" minOccurs ="0">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1382,7 +1491,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="EnableHostForHostSpanning" type="xs:boolean" minOccurs="0">
+                    <xs:element name="EnableHostForHostSpanning" type="xs:boolean" minOccurs ="0">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1402,6 +1511,26 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="NumOfCpuCoresPhysical" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="35.2"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                How many physical CPU cores the host has.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NumOfCpuCoresLogical" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="35.2"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                How many logical CPU cores the host has.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="NumOfCpusPackages" type="xs:int">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
@@ -1414,8 +1543,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="NumOfCpusLogical" type="xs:int">
                         <xs:annotation>
                             <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation source="deprecated">35.2</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                How many logical CPUs the host has.
+                                How many physical CPU cores the host has.
+
+                                Note that this field is deprecated. Use NumOfCpuCoresPhysical and
+                                NumOfCpuCoresLogical instead.
                             </xs:documentation>
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
@@ -1495,7 +1628,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VimObjectRef" type="VimObjectRefType"/><xs:complexType name="VimObjectRefType">
+    </xs:complexType>
+
+    <xs:element name="VimObjectRef" type="VimObjectRefType"/>
+    <xs:complexType name="VimObjectRefType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vimObjectRef</meta:content-type>
@@ -1547,7 +1683,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="VimObjectRefsType">
+    </xs:complexType>
+
+    <xs:complexType name="VimObjectRefsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vimObjectRefs</meta:content-type>
@@ -1568,7 +1706,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="VMWProviderVdc" type="VMWProviderVdcType"/><xs:complexType name="VMWProviderVdcType">
+    </xs:complexType>
+
+    <xs:element name="VMWProviderVdc" type="VMWProviderVdcType"/>
+    <xs:complexType name="VMWProviderVdcType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwprovidervdc</meta:content-type>
@@ -1665,10 +1806,25 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="ComputeProviderScope" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="35.0"/></xs:appinfo>
+                            <xs:documentation source="since">35.0</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The compute provider scope represents the compute fault domain for this provider vDC. This value
+                                is a tenant-facing tag that is shown to tenants when viewing fault domains of the child Organization vDCs (for ex. a VDC Group).
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWProviderVdcParams" type="VMWProviderVdcParamsType"/><xs:complexType name="VMWProviderVdcParamsType">
+    </xs:complexType>
+
+    <xs:element name="VMWProviderVdcParams" type="VMWProviderVdcParamsType"/>
+    <xs:complexType name="VMWProviderVdcParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -1723,7 +1879,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="VxlanNetworkPool" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="VXLAN_NETWORK_POOL"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="VXLAN_NETWORK_POOL" /></xs:appinfo>
                             <xs:documentation source="since">VXLAN_NETWORK_POOL</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation source="deprecated">33.0</xs:documentation>
@@ -1738,7 +1894,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="NetworkPool" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="33.0"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="33.0" /></xs:appinfo>
                             <xs:documentation source="since">33.0</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1820,10 +1976,24 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="AutoCreateNetworkPool" type="xs:boolean" default="true" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="since">36.0</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                If true, network pool is automatically created if no network pool is specified. Defaults to true.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWProviderVdcReferences" type="VMWProviderVdcReferencesType"/><xs:complexType name="VMWProviderVdcReferencesType">
+    </xs:complexType>
+
+    <xs:element name="VMWProviderVdcReferences" type="VMWProviderVdcReferencesType"/>
+    <xs:complexType name="VMWProviderVdcReferencesType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwProviderVdcReferences</meta:content-type>
@@ -1848,7 +2018,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWProviderVdcStorageProfile" type="VMWProviderVdcStorageProfileType"/><xs:complexType name="VMWProviderVdcStorageProfileType">
+    </xs:complexType>
+
+    <xs:element name="VMWProviderVdcStorageProfile" type="VMWProviderVdcStorageProfileType"/>
+    <xs:complexType name="VMWProviderVdcStorageProfileType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -1875,7 +2048,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWExternalNetwork" type="VMWExternalNetworkType"/><xs:complexType name="VMWExternalNetworkType">
+    </xs:complexType>
+
+    <xs:element name="VMWExternalNetwork" type="VMWExternalNetworkType" />
+    <xs:complexType name="VMWExternalNetworkType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwexternalnet</meta:content-type>
@@ -1888,7 +2064,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="vcloud:NetworkType">
                 <xs:sequence>
-                    <xs:element name="VimPortGroupRef" type="VimObjectRefType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VimPortGroupRef" type="VimObjectRefType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -1902,7 +2079,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VimPortGroupRefs" type="VimObjectRefsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VimPortGroupRefs" type="VimObjectRefsType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="since">22.0</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -1920,7 +2098,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWExternalNetworkReferences" type="VMWExternalNetworkReferencesType"/><xs:complexType name="VMWExternalNetworkReferencesType">
+    </xs:complexType>
+
+    <xs:element name="VMWExternalNetworkReferences" type="VMWExternalNetworkReferencesType"/>
+    <xs:complexType name="VMWExternalNetworkReferencesType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwExternalNetworkReferences</meta:content-type>
@@ -1945,7 +2126,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWNetworkPoolReferences" type="VMWNetworkPoolReferencesType"/><xs:complexType name="VMWNetworkPoolReferencesType">
+    </xs:complexType>
+
+    <xs:element name="VMWNetworkPoolReferences" type="VMWNetworkPoolReferencesType"/>
+    <xs:complexType name="VMWNetworkPoolReferencesType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwNetworkPoolReferences</meta:content-type>
@@ -1970,7 +2154,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWNetworkPool" type="VMWNetworkPoolType"/><xs:complexType name="VMWNetworkPoolType">
+    </xs:complexType>
+
+    <xs:element name="VMWNetworkPool" type="VMWNetworkPoolType"/>
+    <xs:complexType name="VMWNetworkPoolType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwNetworkPool</meta:content-type>
@@ -1984,7 +2171,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:extension base="vcloud:NetworkPoolType">
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="PortGroupPoolType">
+    </xs:complexType>
+
+    <xs:complexType name="PortGroupPoolType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.portGroupPool</meta:content-type>
@@ -2029,7 +2218,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VlanPoolType">
+    </xs:complexType>
+
+    <xs:complexType name="VlanPoolType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vlanPool</meta:content-type>
@@ -2080,7 +2271,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="FencePoolType">
+    </xs:complexType>
+
+    <xs:complexType name="FencePoolType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.fencePool</meta:content-type>
@@ -2150,10 +2343,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VxlanPoolType">
+    </xs:complexType>
+
+    <xs:complexType name="VxlanPoolType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.1"/>
+                <meta:version added-in="5.1" />
                 <meta:content-type>application/vnd.vmware.admin.vxlanPool</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">5.1</xs:documentation>
@@ -2177,7 +2372,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="TransportZoneRef" type="VimObjectRefType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="VXLAN_NETWORK_POOL"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="VXLAN_NETWORK_POOL" /></xs:appinfo>
                             <xs:documentation source="since">VXLAN_NETWORK_POOL</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en"> Transport Zone ID of VXLAN Network Pool. </xs:documentation>
@@ -2218,7 +2413,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="GenevePoolType">
+    </xs:complexType>
+
+    <xs:complexType name="GenevePoolType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="NSXT_ROUTER_IMPORT"/>
@@ -2234,7 +2431,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:sequence>
                     <xs:element name="TransportZonePath" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="NSXT_ROUTER_IMPORT"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="NSXT_ROUTER_IMPORT" /></xs:appinfo>
                             <xs:documentation source="since">NSXT_ROUTER_IMPORT</xs:documentation>
                             <xs:documentation source="modifiable">create</xs:documentation>
                             <xs:documentation xml:lang="en"> Transport Zone Path of Geneve Network Pool. </xs:documentation>
@@ -2265,10 +2462,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VdsContextType">
+    </xs:complexType>
+
+    <xs:complexType name="VdsContextType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.1"/>
+                <meta:version added-in="5.1" />
                 <meta:content-type>application/vnd.vmware.admin.vdscontext</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">5.1</xs:documentation>
@@ -2288,7 +2487,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="NumericRangeType">
+    </xs:complexType>
+
+    <xs:complexType name="NumericRangeType">
         <xs:annotation>
             <xs:documentation source="since">0.9</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -2315,7 +2516,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="VMWHostReferences" type="VMWHostReferencesType"/><xs:complexType name="VMWHostReferencesType">
+    </xs:complexType>
+
+    <xs:element name="VMWHostReferences" type="VMWHostReferencesType"/>
+    <xs:complexType name="VMWHostReferencesType">
          <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwHostReferences</meta:content-type>
@@ -2340,7 +2544,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                  </xs:sequence>
              </xs:extension>
          </xs:complexContent>
-     </xs:complexType><xs:element name="ResourcePoolList" type="ResourcePoolListType"/><xs:complexType name="ResourcePoolListType">
+     </xs:complexType>
+
+    <xs:element name="ResourcePoolList" type="ResourcePoolListType"/>
+    <xs:complexType name="ResourcePoolListType">
          <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.resourcePoolList</meta:content-type>
@@ -2366,11 +2573,14 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             </xs:sequence>
            </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="LicensingReport" type="LicensingReportType"/><xs:complexType name="LicensingReportType">
+    </xs:complexType>
+
+    <xs:element name="LicensingReport" type="LicensingReportType"/>
+    <xs:complexType name="LicensingReportType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.licensingReport</meta:content-type>
-                <meta:version added-in="1.5" removed-in="6.0"/>
+                <meta:version added-in="1.5" removed-in="6.0"></meta:version>
             </xs:appinfo>
             <xs:documentation source="since">1.0</xs:documentation>
             <xs:documentation source="deprecated">5.5</xs:documentation>
@@ -2423,7 +2633,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="Sample" type="LicensingReportSampleType"/><xs:complexType name="LicensingReportSampleType">
+    </xs:complexType>
+
+    <xs:element name="Sample" type="LicensingReportSampleType"/>
+    <xs:complexType name="LicensingReportSampleType">
         <xs:annotation>
             <xs:documentation source="since">1.0</xs:documentation>
             <xs:documentation source="deprecated">5.5</xs:documentation>
@@ -2485,7 +2698,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:documentation source="required">true</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-    </xs:complexType><xs:element name="ManagedServer" type="LicensingManagedServerType"/><xs:complexType name="LicensingManagedServerType">
+    </xs:complexType>
+
+    <xs:element name="ManagedServer" type="LicensingManagedServerType"/>
+    <xs:complexType name="LicensingManagedServerType">
         <xs:annotation>
             <xs:documentation source="since">1.0</xs:documentation>
             <xs:documentation source="deprecated">5.5</xs:documentation>
@@ -2523,7 +2739,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:documentation source="required">true</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-    </xs:complexType><xs:element name="VirtualMachine" type="LicensingVirtualMachineType"/><xs:complexType name="LicensingVirtualMachineType">
+    </xs:complexType>
+
+    <xs:element name="VirtualMachine" type="LicensingVirtualMachineType"/>
+    <xs:complexType name="LicensingVirtualMachineType">
         <xs:annotation>
             <xs:documentation source="since">1.0</xs:documentation>
             <xs:documentation source="deprecated">5.5</xs:documentation>
@@ -2561,11 +2780,14 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:documentation source="required">true</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-    </xs:complexType><xs:element name="LicensingReports" type="LicensingReportListType"/><xs:complexType name="LicensingReportListType">
+    </xs:complexType>
+
+    <xs:element name="LicensingReports" type="LicensingReportListType"/>
+    <xs:complexType name="LicensingReportListType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.licensingReportList</meta:content-type>
-                <meta:version added-in="1.5" removed-in="6.0"/>
+                <meta:version added-in="1.5" removed-in="6.0"></meta:version>
             </xs:appinfo>
             <xs:documentation source="since">1.0</xs:documentation>
             <xs:documentation source="deprecated">5.5</xs:documentation>
@@ -2585,7 +2807,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="Datastore" type="DatastoreType"/><xs:complexType name="DatastoreType">
+    </xs:complexType>
+
+    <xs:element name="Datastore" type="DatastoreType"/>
+    <xs:complexType name="DatastoreType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.datastore</meta:content-type>
@@ -2645,7 +2870,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                         </xs:annotation>
                         <xs:simpleType>
                             <xs:restriction base="xs:int">
-                                <xs:minInclusive value="0"/>
+                                <xs:minInclusive value="0"></xs:minInclusive>
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
@@ -2660,7 +2885,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                         </xs:annotation>
                         <xs:simpleType>
                             <xs:restriction base="xs:int">
-                                <xs:minInclusive value="0"/>
+                                <xs:minInclusive value="0"></xs:minInclusive>
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
@@ -2814,14 +3039,20 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="DatastoreReferences" type="vcloud:ReferencesType" substitutionGroup="vcloud:References">
+    </xs:complexType>
+
+    <xs:element name="DatastoreReferences" type="vcloud:ReferencesType" substitutionGroup="vcloud:References">
         <xs:annotation>
             <xs:documentation xml:lang="en">
                 Collection of datastore references.
             </xs:documentation>
             <xs:documentation source="since">1.5</xs:documentation>
         </xs:annotation>
-    </xs:element><xs:element name="VMWStorageProfile" type="VMWStorageProfileType"/><xs:complexType name="VMWStorageProfileType">
+    </xs:element>
+
+    <xs:element name="VMWStorageProfile" type="VMWStorageProfileType"/>
+
+    <xs:complexType name="VMWStorageProfileType">
         <xs:annotation>
             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
             <xs:documentation source="since">5.1</xs:documentation>
@@ -2888,6 +3119,18 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="Capabilities" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="34.0"/>
+                            </xs:appinfo>
+                            <xs:documentation source="since">34.0</xs:documentation>
+                            <xs:documentation>
+                                Capabilities supported by this storage profile.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="name" type="xs:string" use="required">
                     <xs:annotation>
@@ -2902,7 +3145,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWStorageProfiles" type="VMWStorageProfilesType"/><xs:complexType name="VMWStorageProfilesType">
+    </xs:complexType>
+
+    <xs:element name="VMWStorageProfiles" type="VMWStorageProfilesType"/>
+
+    <xs:complexType name="VMWStorageProfilesType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -2929,7 +3176,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VimObjectRefList" type="VimObjectRefListType"/><xs:complexType name="VimObjectRefListType">
+    </xs:complexType>
+
+    <xs:element name="VimObjectRefList" type="VimObjectRefListType"/>
+    <xs:complexType name="VimObjectRefListType">
         <xs:complexContent>
             <xs:extension base="vcloud:ResourceType">
                 <xs:sequence>
@@ -2944,7 +3194,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWProviderVdcResourcePoolSet" type="VMWProviderVdcResourcePoolSetType"/><xs:complexType name="VMWProviderVdcResourcePoolSetType">
+    </xs:complexType>
+
+    <xs:element name="VMWProviderVdcResourcePoolSet" type="VMWProviderVdcResourcePoolSetType"/>
+    <xs:complexType name="VMWProviderVdcResourcePoolSetType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwProviderVdcResourcePoolSet</meta:content-type>
@@ -2968,12 +3221,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VMWProviderVdcResourcePoolType">
+    </xs:complexType>
+
+    <xs:element name="VMWProviderVdcResourcePool" type="VMWProviderVdcResourcePoolType" />
+    <xs:complexType name="VMWProviderVdcResourcePoolType">
         <xs:annotation>
             <xs:appinfo>
+                <meta:version added-in="31.0" />
                 <meta:content-type>application/vnd.vmware.admin.vmwProviderVdcResourcePool</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="since">1.5</xs:documentation>
+            <xs:documentation source="since">31.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Represents backing resource pool for provider vDC.
             </xs:documentation>
@@ -3005,6 +3262,46 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="CpuReservationUsed" type="xs:long">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The resource pool's CPU usage in MHz.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CpuMaxUsage" type="xs:long">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The total CPU capacity in MHz for the given resource pool.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MemReservationUsed" type="xs:long">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The resource pool's memory usage in MB.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MemMaxUsage" type="xs:long">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The total memory capacity in MB for the given resource pool.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="primary" type="xs:boolean" use="optional">
                     <xs:annotation>
@@ -3019,10 +3316,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWDiscoveredResourcePools" type="VMWDiscoveredResourcePoolsType"/><xs:complexType name="VMWDiscoveredResourcePoolsType">
+    </xs:complexType>
+
+    <xs:element name="VMWDiscoveredResourcePools" type="VMWDiscoveredResourcePoolsType"/>
+    <xs:complexType name="VMWDiscoveredResourcePoolsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VDC_ADOPT_RP"/>
+                <meta:version added-in="VDC_ADOPT_RP" />
                 <meta:content-type>application/vnd.vmware.admin.vmwDiscoveredResourcePools</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VDC_ADOPT_RP</xs:documentation>
@@ -3044,7 +3344,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VMWDiscoveredResourcePoolType">
+    </xs:complexType>
+
+    <xs:complexType name="VMWDiscoveredResourcePoolType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwDiscoveredResourcePool</meta:content-type>
@@ -3087,7 +3389,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="UpdateResourcePoolSetParams" type="UpdateResourcePoolSetParamsType"/><xs:complexType name="UpdateResourcePoolSetParamsType">
+    </xs:complexType>
+
+    <xs:element name="UpdateResourcePoolSetParams" type="UpdateResourcePoolSetParamsType"/>
+    <xs:complexType name="UpdateResourcePoolSetParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.resourcePoolSetUpdateParams</meta:content-type>
@@ -3123,7 +3428,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="OrganizationResourcePoolSet" type="OrganizationResourcePoolSetType"/><xs:complexType name="OrganizationResourcePoolSetType">
+    </xs:complexType>
+
+    <xs:element name="OrganizationResourcePoolSet" type="OrganizationResourcePoolSetType"/>
+    <xs:complexType name="OrganizationResourcePoolSetType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.OrganizationVdcResourcePoolSet</meta:content-type>
@@ -3150,7 +3458,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VmVimInfo" type="VmVimInfoType"/><xs:complexType name="VmVimInfoType">
+    </xs:complexType>
+
+    <xs:element name="VmVimInfo" type="VmVimInfoType"/>
+    <xs:complexType name="VmVimInfoType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.VmVimInfo</meta:content-type>
@@ -3209,7 +3520,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="StrandedItemVimObjectType">
+    </xs:complexType>
+
+    <xs:complexType name="StrandedItemVimObjectType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.strandedItemVimObject</meta:content-type>
@@ -3231,7 +3544,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="required">false</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="VimObjectRef" type="VimObjectRefType" minOccurs="1" maxOccurs="1">
+            <xs:element name="VimObjectRef" type="VimObjectRefType"  minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                     <xs:documentation source="modifiable">none</xs:documentation>
@@ -3254,7 +3567,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:documentation source="required">true</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-    </xs:complexType><xs:complexType name="StrandedItemVimObjectsType">
+    </xs:complexType>
+
+    <xs:complexType name="StrandedItemVimObjectsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.strandedItemVimObjects</meta:content-type>
@@ -3277,7 +3592,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="StrandedItem" type="StrandedItemType"/><xs:complexType name="StrandedItemType">
+    </xs:complexType>
+
+    <xs:element name="StrandedItem" type="StrandedItemType"/>
+    <xs:complexType name="StrandedItemType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.strandedItem</meta:content-type>
@@ -3301,7 +3619,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="DeletionDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                    <xs:element name="DeletionDate"  type="xs:dateTime" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
@@ -3344,7 +3662,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                  </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="UpdateProviderVdcStorageProfiles" type="UpdateProviderVdcStorageProfilesParamsType"/><xs:complexType name="UpdateProviderVdcStorageProfilesParamsType">
+    </xs:complexType>
+
+    <xs:element name="UpdateProviderVdcStorageProfiles" type="UpdateProviderVdcStorageProfilesParamsType"/>
+
+    <!-- Used to update the storage profiles associated with a pvDC -->
+    <xs:complexType name="UpdateProviderVdcStorageProfilesParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -3382,7 +3705,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="ProviderVdcMergeParams" type="ProviderVdcMergeParamsType"/><xs:complexType name="ProviderVdcMergeParamsType">
+    </xs:complexType>
+
+    <xs:element name="ProviderVdcMergeParams" type="ProviderVdcMergeParamsType"/>
+    <xs:complexType name="ProviderVdcMergeParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -3410,7 +3736,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VSphereWebClientUrl" type="VSphereWebClientUrlType"/><xs:complexType name="VSphereWebClientUrlType">
+    </xs:complexType>
+
+    <xs:element name="VSphereWebClientUrl" type="VSphereWebClientUrlType"/>
+    <xs:complexType name="VSphereWebClientUrlType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -3433,7 +3762,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="HostObjectRefType">
+    </xs:complexType>
+
+    <xs:complexType name="HostObjectRefType">
         <xs:annotation>
             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
             <xs:documentation xml:lang="en">
@@ -3466,7 +3797,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="HostObjectRefsType">
+    </xs:complexType>
+
+   <xs:complexType name="HostObjectRefsType">
         <xs:annotation>
             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
             <xs:documentation xml:lang="en">
@@ -3485,7 +3818,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="RightsType">
+    </xs:complexType>
+
+    <xs:complexType name="RightsType">
         <xs:annotation>
             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
             <xs:documentation source="added-in">5.1</xs:documentation>
@@ -3505,7 +3840,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="UpdateRightsParams" type="UpdateRightsParamsType"/><xs:complexType name="UpdateRightsParamsType">
+    </xs:complexType>
+
+    <xs:element name="UpdateRightsParams" type="UpdateRightsParamsType"/>
+    <xs:complexType name="UpdateRightsParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -3539,7 +3877,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="RightRefs" type="RightRefsType"/><xs:complexType name="RightRefsType">
+    </xs:complexType>
+
+    <xs:element name="RightRefs" type="RightRefsType"/>
+    <xs:complexType name="RightRefsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -3567,7 +3908,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="EntityReferencesType">
+    </xs:complexType>
+
+    <xs:complexType name="EntityReferencesType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -3582,13 +3925,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:element ref="vcloud:Reference" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="5.1"/>
+                        <meta:version added-in="5.1" />
                     </xs:appinfo>
                     <xs:documentation source="required">false</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="EntityReferences" type="EntityReferencesType"/><xs:complexType name="EntityRightsType">
+    </xs:complexType>
+    <xs:element name="EntityReferences" type="EntityReferencesType"/>
+
+    <xs:complexType name="EntityRightsType">
         <xs:annotation>
             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
             <xs:documentation source="since">5.1</xs:documentation>
@@ -3612,7 +3958,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="UserEntityRightsType">
+    </xs:complexType>
+
+    <xs:complexType name="UserEntityRightsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.1"/>
@@ -3635,7 +3983,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="UserEntityRights" type="UserEntityRightsType"/><xs:element name="MigrateParams" type="MigrateParamsType"/><xs:complexType name="MigrateParamsType">
+    </xs:complexType>
+    <xs:element name="UserEntityRights" type="UserEntityRightsType"/>
+
+    <xs:element name="MigrateParams" type="MigrateParamsType" />
+    <xs:complexType name="MigrateParamsType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.migrateVmParams</meta:content-type>
@@ -3659,7 +4011,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ResourcePoolRef" type="VimObjectRefType" minOccurs="0" maxOccurs="1">
+            <xs:element name="ResourcePoolRef" type="VimObjectRefType"  minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                     <xs:documentation source="modifiable">always</xs:documentation>
@@ -3671,16 +4023,31 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="PinToDatastore" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo><meta:version added-in="36.3"/></xs:appinfo>
+                    <xs:documentation source="modifiable">always</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        Whether or not the VM(s) should be pinned to their current datastore(s).
+                        This value defaults to true.
+                    </xs:documentation>
+                    <xs:documentation source="required">false</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="VendorServices" type="vcloud:VendorServicesType"/><xs:complexType name="VMWVdcTemplateSpecificationType" abstract="true">
+    </xs:complexType>
+
+    <xs:element name="VendorServices" type="vcloud:VendorServicesType"/>
+
+    <xs:complexType name="VMWVdcTemplateSpecificationType" abstract="true" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
         </xs:annotation>
 
         <xs:sequence>
-            <xs:group ref="vcloud:VdcSpecificationGroup"/>
+            <xs:group ref="vcloud:VdcSpecificationGroup" />
             <xs:element name="ThinProvision" type="xs:boolean" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo><meta:version added-in="5.7"/></xs:appinfo>
@@ -3736,11 +4103,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:annotation>
                 </xs:element>
             </xs:choice>
+            <xs:element name="NetworkProfileConfiguration" type="VdcTemplateNetworkProfileType" minOccurs="0" maxOccurs="1"></xs:element>
         </xs:sequence>
-    </xs:complexType><xs:complexType name="AutomaticNetworkPoolReferenceType"/><xs:complexType name="VMWAllocationPoolVdcTemplateSpecificationType" abstract="false">
+    </xs:complexType>
+
+    <xs:complexType name="AutomaticNetworkPoolReferenceType" />
+
+    <xs:complexType name="VMWAllocationPoolVdcTemplateSpecificationType" abstract="false" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation xml:lang="en">
                 Specification for a VDC template using the AllocationPool allocation model.
@@ -3749,30 +4121,52 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="VMWVdcTemplateSpecificationType">
                 <xs:sequence>
-                    <xs:group ref="vcloud:AllocationPoolVdcSpecificationGroup"/>
+                    <xs:group ref="vcloud:AllocationPoolVdcSpecificationGroup" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VMWAllocationVappVdcTemplateSpecificationType" abstract="false">
+    </xs:complexType>
+
+    <xs:complexType name="VMWFlexVdcTemplateSpecificationType" abstract="false" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="35.0" />
+            </xs:appinfo>
+            <xs:documentation xml:lang="en">
+                Specification for a VDC template using the Flex allocation model.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="VMWVdcTemplateSpecificationType" >
+                <xs:sequence>
+                    <xs:group ref="vcloud:AllocationVAppVdcSpecificationGroup" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="VMWAllocationVappVdcTemplateSpecificationType" abstract="false" >
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation xml:lang="en">
                 Specification for a VDC template using the AllocationVApp allocation model.
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="VMWVdcTemplateSpecificationType">
+            <xs:extension base="VMWVdcTemplateSpecificationType" >
                 <xs:sequence>
-                    <xs:group ref="vcloud:AllocationVAppVdcSpecificationGroup"/>
+                    <xs:group ref="vcloud:AllocationVAppVdcSpecificationGroup" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VMWReservationPoolVdcTemplateSpecificationType" abstract="false">
+    </xs:complexType>
+
+    <xs:complexType name="VMWReservationPoolVdcTemplateSpecificationType" abstract="false" >
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation xml:lang="en">
                 Specification for a VDC template using the ReservationPool allocation model.
@@ -3781,18 +4175,21 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="VMWVdcTemplateSpecificationType">
                 <xs:sequence>
-                    <xs:group ref="vcloud:ReservationPoolVdcSpecificationGroup"/>
+                    <xs:group ref="vcloud:ReservationPoolVdcSpecificationGroup" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWVdcTemplate" type="VMWVdcTemplateType">
+    </xs:complexType>
+
+    <xs:element name="VMWVdcTemplate" type="VMWVdcTemplateType">
         <xs:annotation>
             <xs:documentation source="since">5.7</xs:documentation>
         </xs:annotation>
-    </xs:element><xs:complexType name="VMWVdcTemplateType">
+    </xs:element>
+    <xs:complexType name="VMWVdcTemplateType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
                 <meta:content-type>application/vnd.vmware.admin.vmwVdcTemplate</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">5.7</xs:documentation>
@@ -3823,6 +4220,17 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="NetworkBackingType" type="VdcTemplateNetworkBackingType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <meta:version added-in="35.0" />
+                            </xs:appinfo>
+                            <xs:documentation xml:lang="en">
+                                Network backing type (example: NSX_V) supported by this VDC template.
+                                Set during creation of template and cannot be modified.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="ProviderVdcReference" type="VMWVdcTemplateProviderVdcSpecificationType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.7"/></xs:appinfo>
@@ -3837,7 +4245,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:element name="VdcTemplateSpecification" type="VMWVdcTemplateSpecificationType">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.7"/>
+                                <meta:version added-in="5.7" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -3850,10 +4258,38 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VMWVdcTemplateProviderVdcSpecificationType">
+    </xs:complexType>
+
+    <xs:simpleType name="VdcTemplateNetworkBackingType">
+        <xs:annotation>
+            <xs:appinfo><meta:version added-in="35.0" /></xs:appinfo>
+            <xs:documentation source="since">35.0</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Network backing type of Vdc Template.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NSX_V">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <meta:version added-in="35.0"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NSX_T">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <meta:version added-in="35.2"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="VMWVdcTemplateProviderVdcSpecificationType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation source="since">5.7</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -3868,10 +4304,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:complexType name="VMWVdcTemplateBindingType">
+    </xs:complexType>
+
+    <xs:complexType name="VMWVdcTemplateBindingType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.10"/>
+                <meta:version added-in="5.10" />
             </xs:appinfo>
             <xs:documentation source="since">5.10</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -3886,17 +4324,46 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 template is instantiated, the Name is replaced by the network reference
                 in the Value part of the Binding associated with the Provider VDC that
                 the system selects during instantiation.
+                Supported binding values are references to External networks and Edge clusters.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="Name" type="xs:anyURI"/>
-            <xs:element name="Value" type="vcloud:ReferenceType"/>
+            <xs:element name="Name" type="xs:anyURI"></xs:element>
+            <xs:element name="Value" type="vcloud:ReferenceType"></xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="VMWVdcTemplates" type="VMWVdcTemplatesType">
+    </xs:complexType>
+
+    <xs:complexType name="VdcTemplateNetworkProfileType">
+        <xs:annotation>
+            <xs:appinfo><meta:version added-in="35.2" /></xs:appinfo>
+            <xs:documentation source="since">35.2</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Network Profile configuration that is applied to VDC instantiated from a template.
+                In NSX_V VDCs Primary and Secondary Edge Clusters can be configured and used for
+                Edge Gateway deployments.
+                In NSX_T VDC only Services Edge Cluster can be configured and used for deploying
+                DHCP/VApp services
+
+                Binding name from the binding names needs to specified as ReferenceType to
+                PrimaryEdgeCluster SecondaryEdgeCluster and ServicesEdgeCluster properties
+
+                When VDC is instantiated, based on PVDC and binding name appropriate binding
+                value is selected to configure network profiles.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PrimaryEdgeCluster" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1"></xs:element>
+            <xs:element name="SecondaryEdgeCluster" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1"></xs:element>
+            <xs:element name="ServicesEdgeCluster" type="vcloud:ReferenceType" minOccurs="0" maxOccurs="1"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="VMWVdcTemplates" type="VMWVdcTemplatesType">
         <xs:annotation>
             <xs:documentation source="since">5.7</xs:documentation>
         </xs:annotation>
-    </xs:element><xs:complexType name="VMWVdcTemplatesType">
+    </xs:element>
+    <xs:complexType name="VMWVdcTemplatesType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="5.7"/>
@@ -3923,15 +4390,21 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWVdcTemplateReferences" type="vcloud:ReferencesType" substitutionGroup="vcloud:References"/><xs:element name="VMWVdcTemplateList" type="VMWVdcTemplateListType">
+    </xs:complexType>
+
+    <xs:element name="VMWVdcTemplateReferences" type="vcloud:ReferencesType" substitutionGroup="vcloud:References" />
+
+    <xs:element name="VMWVdcTemplateList" type="VMWVdcTemplateListType" >
         <xs:annotation>
             <xs:documentation source="since">5.7</xs:documentation>
         </xs:annotation>
-    </xs:element><xs:complexType name="VMWVdcTemplateListType">
+    </xs:element>
+
+    <xs:complexType name="VMWVdcTemplateListType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:content-type>application/vnd.vmware.admin.vmwVdcTemplateReferences</meta:content-type>
-                <meta:version added-in="5.7"/>
+                <meta:version added-in="5.7" />
             </xs:appinfo>
             <xs:documentation source="since">5.7</xs:documentation>
             <xs:documentation xml:lang="en">
@@ -3955,10 +4428,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWHostGroup" type="VMWHostGroupType"/><xs:complexType name="VMWHostGroupType">
+    </xs:complexType>
+
+    <xs:element name="VMWHostGroup" type="VMWHostGroupType" />
+        <xs:complexType name="VMWHostGroupType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY" />
                 <meta:content-type>application/vnd.vmware.admin.vmwHostGroupType</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -3971,7 +4447,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="vcloud:EntityType">
                 <xs:sequence>
-                    <xs:element name="Hosts" type="VMWHostReferencesType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="Hosts" type="VMWHostReferencesType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -3984,10 +4461,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWHostGroups" type="VMWHostGroupsType"/><xs:complexType name="VMWHostGroupsType">
+    </xs:complexType>
+
+    <xs:element name="VMWHostGroups" type="VMWHostGroupsType" />
+    <xs:complexType name="VMWHostGroupsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY" />
                 <meta:content-type>application/vnd.vmware.admin.vmwHostGroupsType</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -4011,10 +4491,14 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWVmHostAffinityRule" type="VMWVmHostAffinityRuleType"/><xs:complexType name="VMWVmHostAffinityRuleType">
+    </xs:complexType>
+
+
+    <xs:element name="VMWVmHostAffinityRule" type="VMWVmHostAffinityRuleType"/>
+    <xs:complexType name="VMWVmHostAffinityRuleType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY"></meta:version>
                 <meta:content-type>application/vnd.vmware.admin.vmwVmHostAffinityRule</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -4025,7 +4509,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="vcloud:AffinityRuleType">
                 <xs:sequence>
-                    <xs:element name="HostGroupName" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="HostGroupName"
+                        type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -4038,7 +4523,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VmGroupName" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VmGroupName" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -4052,10 +4538,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWVmHostAffinityRules" type="VMWVmHostAffinityRulesType"/><xs:complexType name="VMWVmHostAffinityRulesType">
+    </xs:complexType>
+
+    <xs:element name="VMWVmHostAffinityRules" type="VMWVmHostAffinityRulesType" />
+    <xs:complexType name="VMWVmHostAffinityRulesType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY"></meta:version>
                 <meta:content-type>application/vnd.vmware.admin.vmwVmHostAffinityRules</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -4066,10 +4555,12 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="vcloud:ResourceType">
                 <xs:sequence>
-                    <xs:element name="VmHostAffinityRule" type="VMWVmHostAffinityRuleType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="VmHostAffinityRule"
+                        type="VMWVmHostAffinityRuleType" minOccurs="0"
+                        maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="VM_HOST_AFFINITY"/>
+                                <meta:version added-in="VM_HOST_AFFINITY" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -4083,10 +4574,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWNamedVmGroup" type="VMWNamedVmGroupType"/><xs:complexType name="VMWNamedVmGroupType">
+    </xs:complexType>
+
+    <xs:element name="VMWNamedVmGroup" type="VMWNamedVmGroupType" />
+    <xs:complexType name="VMWNamedVmGroupType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY" />
                 <meta:content-type>application/vnd.vmware.admin.vmwNamedVmGroupType</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -4112,10 +4606,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWVmGroupReferences" type="VMWVmGroupReferencesType"/><xs:complexType name="VMWVmGroupReferencesType">
+    </xs:complexType>
+
+    <xs:element name="VMWVmGroupReferences" type="VMWVmGroupReferencesType"/>
+    <xs:complexType name="VMWVmGroupReferencesType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY" />
                 <meta:content-type>application/vnd.vmware.admin.vmwVmGroupReferences</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -4134,10 +4631,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType><xs:element name="VMWVmGroup" type="VMWVmGroupType"/><xs:complexType name="VMWVmGroupType">
+    </xs:complexType>
+
+    <xs:element name="VMWVmGroup" type="VMWVmGroupType" />
+   <xs:complexType name="VMWVmGroupType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY" />
                 <meta:content-type>application/vnd.vmware.admin.vmwVmGroupType</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -4163,10 +4663,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="VMWVmGroups" type="VMWVmGroupsType"/><xs:complexType name="VMWVmGroupsType">
+    </xs:complexType>
+
+    <xs:element name="VMWVmGroups" type="VMWVmGroupsType" />
+    <xs:complexType name="VMWVmGroupsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="VM_HOST_AFFINITY"/>
+                <meta:version added-in="VM_HOST_AFFINITY" />
                 <meta:content-type>application/vnd.vmware.admin.vmwVmGroupsType</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">VM_HOST_AFFINITY</xs:documentation>
@@ -4190,7 +4693,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="Datastores" type="DatastoresType"/><xs:complexType name="DatastoresType">
+    </xs:complexType>
+
+    <xs:element name="Datastores" type="DatastoresType"/>
+    <xs:complexType name="DatastoresType">
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="TENANT_STORAGE_MIGRATION"/>
@@ -4218,10 +4724,13 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType><xs:element name="TenantMigrationParams" type="TenantMigrationParamsType"/><xs:complexType name="TenantMigrationParamsType">
+    </xs:complexType>
+
+    <xs:element name="TenantMigrationParams" type="TenantMigrationParamsType" />
+    <xs:complexType name="TenantMigrationParamsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="TENANT_STORAGE_MIGRATION"/>
+                <meta:version added-in="TENANT_STORAGE_MIGRATION" />
                 <meta:content-type>application/vnd.vmware.cloud.tenantMigrationParams</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">TENANT_STORAGE_MIGRATION</xs:documentation>
@@ -4265,4 +4774,5 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:sequence>
             </xs:extension>
        </xs:complexContent>
-    </xs:complexType></xs:schema>
+    </xs:complexType>
+</xs:schema>

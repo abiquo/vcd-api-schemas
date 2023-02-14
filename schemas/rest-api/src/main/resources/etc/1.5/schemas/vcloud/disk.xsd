@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  #%L
-  vcd-rest-api-schemas :: vCloud Director REST API schemas
-  %%
-  Copyright (C) 2013 - 2019 VMware
-  %%
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  
-  1. Redistributions of source code must retain the above copyright notice,
-     this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
-  #L%
-  -->
-<!--
 Copyright © 2013 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -37,11 +9,20 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
---><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="2.0">
+-->
+<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:meta="http://www.vmware.com/vcloud/meta"
+           jaxb:version="2.0"
+           jaxb:extensionBindingPrefixes="meta"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.vmware.com/vcloud/v1.5"
+           version="2.0">
 
-    <xs:include schemaLocation="common.xsd"/>
-    <xs:include schemaLocation="resourceEntity.xsd"/>
-    <xs:include schemaLocation="vApp.xsd"/>
+    <xs:include schemaLocation="common.xsd" />
+    <xs:include schemaLocation="resourceEntity.xsd" />
+    <xs:include schemaLocation="vApp.xsd" />
 
     <xs:annotation>
         <xs:documentation xml:lang="en">
@@ -49,7 +30,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:documentation>
     </xs:annotation>
 
-    <xs:element name="Disk" type="DiskType"/>
+    <xs:element name="Disk" type="DiskType" />
     <xs:complexType name="DiskType">
         <xs:annotation>
             <xs:appinfo>
@@ -65,7 +46,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ResourceEntityType">
                 <xs:sequence>
-                    <xs:element name="StorageProfile" type="ReferenceType" minOccurs="0">
+                    <xs:element name="StorageProfile" type="ReferenceType"  minOccurs="0">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -85,6 +66,17 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="IopsAllocation" type="IopsResourceType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="added-in">37.0</xs:documentation>
+                            <xs:appinfo><meta:version added-in="37.0"/></xs:appinfo>
+                        <xs:documentation source="modifiable">always</xs:documentation>
+                        <xs:documentation xml:lang="en">
+                           IOPS allocated to the disk
+                        </xs:documentation>
+                        <xs:documentation source="required">false</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
                 </xs:sequence>
                 <xs:attribute name="size" type="xs:long">
                     <xs:annotation>
@@ -109,10 +101,23 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
                 <xs:attribute name="iops" type="xs:long" use="optional">
                     <xs:annotation>
-                    <xs:appinfo><meta:version added-in="9.0"/></xs:appinfo>
+                    <xs:appinfo><meta:version added-in="9.0" removed-in="37.0"/></xs:appinfo>
+                            <xs:documentation source="deprecated">37.0</xs:documentation>
+                            <xs:documentation source="removed-in">37.0</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Specifies the IOPS for the disk.
+                                This attribute is deprected and removed in 37.0; use IopsAllocation instead.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                <xs:attribute name="encrypted" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                    <xs:appinfo><meta:version added-in="34.0"/></xs:appinfo>
                         <xs:documentation source="modifiable">none</xs:documentation>
                         <xs:documentation xml:lang="en">
-                           IOPS request for the created disk
+                           True if disk is encrypted. This is a read-only attribute.
                         </xs:documentation>
                         <xs:documentation source="required">false</xs:documentation>
                     </xs:annotation>
@@ -140,7 +145,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                         <xs:documentation source="modifiable">none</xs:documentation>
                         <xs:documentation xml:lang="en">
                            Disk bus subtype expressed as a string. One of:&lt;br&gt;
-                           "" (null)&amp;nbsp;&amp;nbsp;IDE, requires busType 5&lt;br&gt;
+                           &quot;&quot; (null)&amp;nbsp;&amp;nbsp;IDE, requires busType 5&lt;br&gt;
                            &lt;b&gt;buslogic&lt;/b&gt;&amp;nbsp;&amp;nbsp;BusLogic Parallel SCSI controller, requires busType 6&lt;br&gt;
                            &lt;b&gt;lsilogic&lt;/b&gt;&amp;nbsp;&amp;nbsp;LSI Logic Parallel SCSI controller, requires busType 6&lt;br&gt;
                            &lt;b&gt;lsilogicsas&lt;/b&gt;&amp;nbsp;&amp;nbsp;LSI Logic SAS SCSI controller, requires busType 6&lt;br&gt;
@@ -154,11 +159,52 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                         <xs:documentation source="required">false</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="shareable" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:appinfo><meta:version added-in="35.0" /></xs:appinfo>
+                        <xs:documentation source="deprecated">36.0</xs:documentation>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation xml:lang="en">
+                            This attribute is immutable; used for create only.
+                            If set true, a shareable disk is created.
+                            Shareable and controllerSharing are mutually exclusive.
+                            This attribute is deprecated; use sharingType instead.
+                        </xs:documentation>
+                        <xs:documentation source="required">false</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="sharingType" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation xml:lang="en">
+                            This attribute is immutable; used for create only.
+                            This is the sharing type expressed as a string.
+                            This attribute can only have values defined by DiskSharingType.
+                            One of:&lt;br/&gt;
+                            &lt;b&gt;None&lt;/b&gt;&amp;nbsp;&amp;nbsp;Non shared disk(default)&lt;br/&gt;
+                            &lt;b&gt;DiskSharing&lt;/b&gt;&amp;nbsp;&amp;nbsp;Disk level shared disk&lt;br/&gt;
+                            &lt;b&gt;ControllerSharing&lt;/b&gt;&amp;nbsp;&amp;nbsp;Controller level shared disk&lt;br/&gt;
+                            &lt;br/&gt;
+                        </xs:documentation>
+                        <xs:documentation source="required">false</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="uuid" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:appinfo><meta:version added-in="36.0"/></xs:appinfo>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation xml:lang="en">
+                            The UUID of this named disk's device backing. This is a read-only value.
+                        </xs:documentation>
+                        <xs:documentation source="required">false</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="DiskCreateParams" type="DiskCreateParamsType"/>
+    <xs:element name="DiskCreateParams" type="DiskCreateParamsType" />
     <xs:complexType name="DiskCreateParamsType">
         <xs:annotation>
             <xs:appinfo>
@@ -204,7 +250,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="DiskAttachOrDetachParams" type="DiskAttachOrDetachParamsType"/>
+    <xs:element name="DiskAttachOrDetachParams" type="DiskAttachOrDetachParamsType" />
     <xs:complexType name="DiskAttachOrDetachParamsType">
         <xs:annotation>
             <xs:appinfo>
@@ -260,4 +306,62 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
+    <xs:element name="DiskMoveParams" type="DiskMoveParamsType" />
+    <xs:complexType name="DiskMoveParamsType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:version added-in="DISK_MIGRATION"/>
+                <meta:content-type>application/vnd.vmware.vcloud.diskMoveParams</meta:content-type>
+            </xs:appinfo>
+            <xs:documentation source="since">DISK_MIGRATION</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Parameters for moving a named disk to a different Org VDC.
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:complexContent>
+            <xs:extension base="VCloudExtensibleType">
+                <xs:sequence>
+                    <xs:element name="Vdc" type="ReferenceType">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="DISK_MIGRATION"/></xs:appinfo>
+                            <xs:documentation source="since">DISK_MIGRATION</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                A reference to the destination Org VDC.
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="StoragePolicy" type="ReferenceType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="DISK_MIGRATION"/></xs:appinfo>
+                            <xs:documentation source="since">DISK_MIGRATION</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                A reference to the storage policy that will be
+                                used for the disk in the destination Org VDC.
+                                If unset, the default storage policy of the
+                                destination Org VDC will be used.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Iops" type="xs:long" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="DISK_MIGRATION"/></xs:appinfo>
+                            <xs:documentation source="since">DISK_MIGRATION</xs:documentation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                The IOPS that should be set on the disk. If
+                                unset, the default disk IOPS value of the
+                                storage policy will be used.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 </xs:schema>

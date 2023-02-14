@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  #%L
-  vcd-rest-api-schemas :: vCloud Director REST API schemas
-  %%
-  Copyright (C) 2013 - 2019 VMware
-  %%
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  
-  1. Redistributions of source code must retain the above copyright notice,
-     this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
-  #L%
-  -->
-<!--
 Copyright © 2013 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -37,9 +9,20 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
---><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" xmlns:vcloud-ext="http://www.vmware.com/vcloud/extension/v1.5" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
+-->
+<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:meta="http://www.vmware.com/vcloud/meta"
+           xmlns:vcloud-ext="http://www.vmware.com/vcloud/extension/v1.5"
+           jaxb:version="2.0"
+           jaxb:extensionBindingPrefixes="meta"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.vmware.com/vcloud/v1.5"
+           version="1.0">
 
-    <xs:import namespace="http://www.vmware.com/vcloud/extension/v1.5"/>
+    <xs:import namespace="http://www.vmware.com/vcloud/extension/v1.5" schemaLocation="../extension/vmwextensions.xsd"/>
+
     <xs:include schemaLocation="../vcloud/vdc.xsd"/>
     <xs:include schemaLocation="../vcloud/vdcStorageProfile.xsd"/>
     <xs:include schemaLocation="../vcloud/vendorServices.xsd"/>
@@ -203,7 +186,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                                 to the organization vDC. vApps in vDCs that
                                 support this allocation model can specify
                                 values for resource and limit.)&lt;br&gt;
-                                &lt;b&gt;Generic&lt;/b&gt; (A generic type
+                                &lt;b&gt;FLEX&lt;/b&gt; (A generic type
                                 of VDC where all the settings are in full
                                 control of the creator.)
                             </xs:documentation>
@@ -360,7 +343,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">true</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ResourcePoolRefs" type="vcloud-ext:VimObjectRefsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="ResourcePoolRefs" type="vcloud-ext:VimObjectRefsType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="VDC_ADOPT_RP"/></xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
@@ -422,7 +406,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="modifiable">none</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Default vDC compute policy in this vDC. It is mandatory
-                                for Generic type of VDCs.
+                                for FLEX type of VDCs.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -445,9 +429,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="added-in">GENERIC_VDC_TYPE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Set to true to indicate if the Generic vDC is to
+                                Set to true to indicate if the FLEX vDC is to
                                 be elastic. This is an optional field and is useful
-                                only for Generic vDC creation.
+                                only for FLEX vDC creation.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -458,10 +442,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="added-in">GENERIC_VDC_TYPE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Set to true to indicate if the GENERIC vDC is to
+                                Set to true to indicate if the FLEX vDC is to
                                 include memory overhead into its accounting for admission control.
                                 This is an optional field and is useful
-                                only for GENERIC vDC creation.
+                                only for FLEX vDC creation.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -573,7 +557,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ResourcePoolRefs" type="vcloud-ext:VimObjectRefsType" minOccurs="0" maxOccurs="1">
+                    <xs:element name="ResourcePoolRefs" type="vcloud-ext:VimObjectRefsType"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="VDC_ADOPT_RP"/></xs:appinfo>
                             <xs:documentation source="modifiable">none</xs:documentation>
@@ -639,9 +624,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="added-in">GENERIC_VDC_TYPE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Set to true to indicate if the GENERIC vDC is to
+                                Set to true to indicate if the FLEX vDC is to
                                 be elastic. This is an optional field and is useful
-                                only for GENERIC vDC creation.
+                                only for FLEX vDC creation.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -652,10 +637,10 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="added-in">GENERIC_VDC_TYPE</xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
                             <xs:documentation xml:lang="en">
-                                Set to true to indicate if the GENERIC vDC is to
+                                Set to true to indicate if the FLEX vDC is to
                                 include memory overhead into its accounting for admission control.
                                 This is an optional field and is useful
-                                only for GENERIC vDC creation.
+                                only for FLEX vDC creation.
                             </xs:documentation>
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
@@ -1058,6 +1043,16 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="InheritPvdcDefaultSettings" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo><meta:version added-in="35.0"/></xs:appinfo>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                True if this Org VDC storage profile should inheirt the default settings of the parent PVDC storage profile.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="ProviderVdcStorageProfile" type="ReferenceType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
@@ -1120,7 +1115,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ParamsType">
                 <xs:sequence>
-                    <xs:element name="AddStorageProfile" type="VdcStorageProfileParamsType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="AddStorageProfile"
+                        type="VdcStorageProfileParamsType" minOccurs="0"
+                        maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -1130,7 +1127,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="RemoveStorageProfile" type="ReferenceType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="RemoveStorageProfile"
+                        type="ReferenceType" minOccurs="0"
+                        maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
                             <xs:documentation source="modifiable">always</xs:documentation>
@@ -1146,11 +1145,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="PvdcComputePolicy" type="PvdcComputePolicyType"/>
+    <xs:element name="PvdcComputePolicy" type="PvdcComputePolicyType" />
     <xs:complexType name="PvdcComputePolicyType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="TENANT_VM_GROUP"/>
+                <meta:version added-in="TENANT_VM_GROUP" />
                 <meta:content-type>application/vnd.vmware.admin.pvdcComputePolicyType</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">TENANT_VM_GROUP</xs:documentation>
@@ -1185,11 +1184,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="PvdcComputePolicies" type="PvdcComputePoliciesType"/>
+    <xs:element name="PvdcComputePolicies" type="PvdcComputePoliciesType" />
     <xs:complexType name="PvdcComputePoliciesType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="TENANT_VM_GROUP"/>
+                <meta:version added-in="TENANT_VM_GROUP" />
                 <meta:content-type>application/vnd.vmware.admin.pvdcComputePoliciesType</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">TENANT_VM_GROUP</xs:documentation>

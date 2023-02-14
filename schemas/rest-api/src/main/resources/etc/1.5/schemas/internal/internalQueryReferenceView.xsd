@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright © 2013 VMware, Inc. All rights reserved.
+
+Copyright 2013 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -10,36 +11,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
 -->
-<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-           xmlns:meta="http://www.vmware.com/vcloud/meta"
-           jaxb:version="2.0"
-           jaxb:extensionBindingPrefixes="meta"
-           elementFormDefault="qualified"
-           targetNamespace="http://www.vmware.com/vcloud/v1.5"
-           version="1.0">
+<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
 
-    <xs:annotation>
+    <xs:include schemaLocation="../vcloud/common.xsd"/>
+    <xs:include schemaLocation="../vcloud/entity.xsd"/>
+       <xs:annotation>
         <xs:documentation xml:lang="en">
-            Schema for the vCloud screen ticket.
+            Schema for the entities returned by the referenceView query handler.
         </xs:documentation>
     </xs:annotation>
-
-    <xs:element name="ScreenTicket" type="ScreenTicketType"/>
-    <xs:complexType name="ScreenTicketType">
+    <xs:element name="SiteOrgAssociationReferences" type="ReferencesType" substitutionGroup="References">
         <xs:annotation>
-            <xs:appinfo>
-                <meta:content-type>application/vnd.vmware.vcloud.screenTicket</meta:content-type>
-            </xs:appinfo>
-            <xs:documentation source="since">0.9</xs:documentation>
             <xs:documentation xml:lang="en">
-                The ticket for accessing the console of a VM.
+               A container for siteOrgAssociation query results in references format.
             </xs:documentation>
         </xs:annotation>
+    </xs:element>
 
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
-    </xs:complexType>
+    <xs:element name="SiteOrgAssociationReference" type="ReferenceType" substitutionGroup="Reference">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+               A single siteOrgAssociation query result in reference format.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
 </xs:schema>

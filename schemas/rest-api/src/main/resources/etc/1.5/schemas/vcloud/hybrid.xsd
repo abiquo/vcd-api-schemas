@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  #%L
-  vcd-rest-api-schemas :: vCloud Director REST API schemas
-  %%
-  Copyright (C) 2013 - 2019 VMware
-  %%
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  
-  1. Redistributions of source code must retain the above copyright notice,
-     this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
-  #L%
-  -->
-<!--
 Copyright © 2013 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -37,7 +9,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
---><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
+-->
+<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta"
+    jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified"
+    targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
 
     <xs:include schemaLocation="common.xsd"/>
 
@@ -47,14 +23,14 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:documentation>
     </xs:annotation>
 
-    <xs:element name="HybridOrg" type="HybridOrgType"/>
+    <xs:element name="HybridOrg" type="HybridOrgType" />
     <xs:complexType name="HybridOrgType">
          <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.6"/>
+                <meta:version added-in="5.6" />
                 <meta:content-type>application/vnd.vmware.vcloud.hybridOrg</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 Lists links to hybrid operations and entities in the context of an Org.
@@ -66,7 +42,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="ToCloudTunnelCreateParams" type="ToCloudTunnelCreateParamsType"/>
+    <xs:element name="ToCloudTunnelCreateParams" type="ToCloudTunnelCreateParamsType" />
 
     <xs:complexType name="ToCloudTunnelCreateParamsType">
         <xs:annotation>
@@ -74,7 +50,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="5.6"/>
                 <meta:content-type>application/vnd.vmware.vcloud.toCloudTunnelCreateParams</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">Parameters for creating to-the-cloud tunnel</xs:documentation>
         </xs:annotation>
@@ -115,7 +91,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     </xs:complexType>
 
-    <xs:element name="ToCloudTunnel" type="ToCloudTunnelType"/>
+    <xs:element name="ToCloudTunnel" type="ToCloudTunnelType" />
 
     <xs:complexType name="ToCloudTunnelType">
         <xs:annotation>
@@ -123,7 +99,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="5.6"/>
                 <meta:content-type>application/vnd.vmware.vcloud.toCloudTunnel</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes to-the-cloud tunnel
@@ -170,7 +146,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     </xs:complexType>
 
-    <xs:element name="AdminToCloudTunnel" type="AdminToCloudTunnelType"/>
+    <xs:element name="AdminToCloudTunnel" type="AdminToCloudTunnelType" />
 
     <xs:complexType name="AdminToCloudTunnelType">
         <xs:annotation>
@@ -178,7 +154,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="5.6"/>
                 <meta:content-type>application/vnd.vmware.vcloud.admin.toCloudTunnel</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes the administrator view of a to-the-cloud tunnel
@@ -226,7 +202,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     </xs:complexType>
 
-    <xs:element name="FromCloudTunnelCreateParams" type="FromCloudTunnelCreateParamsType"/>
+    <xs:element name="FromCloudTunnelCreateParams" type="FromCloudTunnelCreateParamsType" />
 
     <xs:complexType name="FromCloudTunnelCreateParamsType">
         <xs:annotation>
@@ -234,7 +210,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="6.0"/>
                 <meta:content-type>application/vnd.vmware.vcloud.fromCloudTunnelCreateParams</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">6.0</xs:documentation>
             <xs:documentation xml:lang="en">Parameters for creating from-the-cloud tunnel</xs:documentation>
         </xs:annotation>
@@ -285,7 +261,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     </xs:complexType>
 
-    <xs:element name="FromCloudTunnel" type="FromCloudTunnelType"/>
+    <xs:element name="FromCloudTunnel" type="FromCloudTunnelType" />
 
     <xs:complexType name="FromCloudTunnelType">
         <xs:annotation>
@@ -293,7 +269,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="6.0"/>
                 <meta:content-type>application/vnd.vmware.vcloud.fromCloudTunnel</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">6.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes from-the-cloud tunnel
@@ -350,7 +326,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 
     </xs:complexType>
 
-    <xs:element name="AdminFromCloudTunnel" type="AdminFromCloudTunnelType"/>
+    <xs:element name="AdminFromCloudTunnel" type="AdminFromCloudTunnelType" />
 
     <xs:complexType name="AdminFromCloudTunnelType">
         <xs:annotation>
@@ -358,7 +334,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="6.0"/>
                 <meta:content-type>application/vnd.vmware.vcloud.admin.fromCloudTunnel</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">6.0</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes the administrator view of a from-the-cloud tunnel
@@ -387,7 +363,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:element name="Port" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="6.0"/>
+                        <meta:version added-in="6.0" />
                     </xs:appinfo>
                     <xs:documentation source="since">6.0</xs:documentation>
                     <xs:documentation source="modifiable">create</xs:documentation>
@@ -400,7 +376,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:element name="TrafficType" type="xs:string">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="6.0"/>
+                        <meta:version added-in="6.0" />
                     </xs:appinfo>
                     <xs:documentation source="since">6.0</xs:documentation>
                     <xs:documentation source="modifiable">create</xs:documentation>
@@ -413,7 +389,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
             <xs:element name="EndpointTag" type="xs:string" minOccurs="0">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="6.0"/>
+                        <meta:version added-in="6.0" />
                     </xs:appinfo>
                     <xs:documentation source="since">6.0</xs:documentation>
                     <xs:documentation source="modifiable">create</xs:documentation>
@@ -428,7 +404,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:sequence>
     </xs:group>
 
-    <xs:element name="FromCloudTunnelListenerCreateParams" type="FromCloudTunnelListenerCreateParamsType"/>
+    <xs:element name="FromCloudTunnelListenerCreateParams" type="FromCloudTunnelListenerCreateParamsType" />
 
     <xs:complexType name="FromCloudTunnelListenerCreateParamsType">
         <xs:annotation>
@@ -436,28 +412,28 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="6.0"/>
                 <meta:content-type>application/vnd.vmware.vcloud.fromCloudTunnelListenerCreateParams</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">6.0</xs:documentation>
             <xs:documentation xml:lang="en">Parameters for creating from-the-cloud tunnel listener</xs:documentation>
         </xs:annotation>
 
         <xs:complexContent>
             <xs:extension base="VCloudExtensibleType">
-                <xs:group ref="FromCloudTunnelListenerProperties"/>
+                <xs:group ref="FromCloudTunnelListenerProperties" />
             </xs:extension>
         </xs:complexContent>
 
     </xs:complexType>
 
-	<xs:element name="FromCloudTunnelListener" type="FromCloudTunnelListenerType"/>
+	<xs:element name="FromCloudTunnelListener" type="FromCloudTunnelListenerType" />
 
 	<xs:complexType name="FromCloudTunnelListenerType">
 		<xs:annotation>
 			<xs:appinfo>
-				<meta:version added-in="6.0"/>
+				<meta:version added-in="6.0" />
 				<meta:content-type>application/vnd.vmware.vcloud.fromCloudTunnelListener</meta:content-type>
 			</xs:appinfo>
-			<xs:documentation source="internal"/>
+			<xs:documentation source="internal" />
 			<xs:documentation source="since">6.0</xs:documentation>
 			<xs:documentation xml:lang="en">
 				Properties of a from-the-cloud tunnel listener. A from-the-cloud listener associates
@@ -469,21 +445,21 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 		<xs:complexContent>
 			<xs:extension base="EntityType">
 				<xs:sequence>
-					<xs:group ref="FromCloudTunnelListenerProperties"/>
+					<xs:group ref="FromCloudTunnelListenerProperties" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:element name="FromCloudTunnelListenerList" type="FromCloudTunnelListenerListType"/>
+	<xs:element name="FromCloudTunnelListenerList" type="FromCloudTunnelListenerListType" />
 
 	<xs:complexType name="FromCloudTunnelListenerListType">
 		<xs:annotation>
 			<xs:appinfo>
-				<meta:version added-in="6.0"/>
+				<meta:version added-in="6.0" />
 				<meta:content-type>application/vnd.vmware.vcloud.fromCloudTunnelListenerList</meta:content-type>
 			</xs:appinfo>
-			<xs:documentation source="internal"/>
+			<xs:documentation source="internal" />
 			<xs:documentation source="since">6.0</xs:documentation>
 			<xs:documentation xml:lang="en">
 				A list of the existing from-the-cloud tunnel listeners.
@@ -493,10 +469,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 		<xs:complexContent>
 			<xs:extension base="ContainerType">
 				<xs:sequence>
-					<xs:element name="FromCloudTunnelListener" type="FromCloudTunnelListenerType" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="FromCloudTunnelListener" type="FromCloudTunnelListenerType"
+						minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:appinfo>
-								<meta:version added-in="6.0"/>
+								<meta:version added-in="6.0" />
 							</xs:appinfo>
 							<xs:documentation source="since">6.0</xs:documentation>
 							<xs:documentation source="modifiable">none</xs:documentation>
@@ -512,7 +489,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
 		</xs:complexContent>
 	</xs:complexType>
 
-    <xs:element name="HybridTicket" type="HybridTicketType"/>
+    <xs:element name="HybridTicket" type="HybridTicketType" />
 
     <xs:complexType name="HybridTicketType">
         <xs:annotation>
@@ -520,7 +497,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <meta:version added-in="5.6"/>
                 <meta:content-type>application/vnd.vmware.vcloud.hybridTicket</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 Ticket for establishing a connection to Cloud Proxy.
@@ -528,19 +505,19 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:annotation>
 
         <xs:simpleContent>
-            <xs:extension base="xs:string"/>
+            <xs:extension base="xs:string" />
         </xs:simpleContent>
     </xs:complexType>
 
-    <xs:element name="TunnelingApplicationRegisterParams" type="TunnelingApplicationRegisterParamsType"/>
+    <xs:element name="TunnelingApplicationRegisterParams" type="TunnelingApplicationRegisterParamsType" />
 
     <xs:complexType name="TunnelingApplicationRegisterParamsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.6"/>
+                <meta:version added-in="5.6" />
                 <meta:content-type>application/vnd.vmware.vcloud.tunnelingApplicationRegisterParams</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 Parameters for registering cloud part of the tunneling application.
@@ -588,15 +565,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="TunnelingApplication" type="TunnelingApplicationType"/>
+    <xs:element name="TunnelingApplication" type="TunnelingApplicationType" />
 
     <xs:complexType name="TunnelingApplicationType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.6"/>
+                <meta:version added-in="5.6" />
                 <meta:content-type>application/vnd.vmware.vcloud.tunnelingApplication</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 Describes cloud part of a tunneling application registered with VCD.
@@ -644,15 +621,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
     
-    <xs:element name="TunnelingApplicationList" type="TunnelingApplicationListType"/>
+    <xs:element name="TunnelingApplicationList" type="TunnelingApplicationListType" />
 
     <xs:complexType name="TunnelingApplicationListType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.6"/>
+                <meta:version added-in="5.6" />
                 <meta:content-type>application/vnd.vmware.vcloud.tunnelingApplicationList</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 A list of registered tunneling applications.
@@ -676,15 +653,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="HybridSettings" type="HybridSettingsType"/>
+    <xs:element name="HybridSettings" type="HybridSettingsType" />
 
     <xs:complexType name="HybridSettingsType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="5.6"/>
+                <meta:version added-in="5.6" />
                 <meta:content-type>application/vnd.vmware.vcloud.hybridSettings</meta:content-type>
             </xs:appinfo>
-            <xs:documentation source="internal"/>
+            <xs:documentation source="internal" />
             <xs:documentation source="since">5.6</xs:documentation>
             <xs:documentation xml:lang="en">
                 Public URL and certificate of the Cloud Proxy end point.
@@ -694,10 +671,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="ResourceType">
                 <xs:sequence>
-                    <xs:element name="CloudProxyBaseUri" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="CloudProxyBaseUri" type="xs:string" minOccurs="0"
+                        maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none
                             </xs:documentation>
@@ -709,10 +687,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CloudProxyBaseUriPublicCertChain" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="CloudProxyBaseUriPublicCertChain" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none
                             </xs:documentation>
@@ -726,10 +705,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CloudProxyBaseUriOverride" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="CloudProxyBaseUriOverride" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -739,10 +719,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CloudProxyBaseUriPublicCertChainOverride" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="CloudProxyBaseUriPublicCertChainOverride" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="5.6"/>
+                                <meta:version added-in="5.6" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">always
                             </xs:documentation>
@@ -755,10 +736,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CloudProxyFromCloudTunnelHost" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="CloudProxyFromCloudTunnelHost" type="xs:string" minOccurs="0"
+                        maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="6.0"/>
+                                <meta:version added-in="6.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none
                             </xs:documentation>
@@ -768,10 +750,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                             <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CloudProxyFromCloudTunnelHostOverride" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="CloudProxyFromCloudTunnelHostOverride" type="xs:string" minOccurs="0"
+                        maxOccurs="1">
                         <xs:annotation>
                             <xs:appinfo>
-                                <meta:version added-in="6.0"/>
+                                <meta:version added-in="6.0" />
                             </xs:appinfo>
                             <xs:documentation source="modifiable">none
                             </xs:documentation>

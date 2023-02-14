@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  #%L
-  vcd-rest-api-schemas :: vCloud Director REST API schemas
-  %%
-  Copyright (C) 2013 - 2019 VMware
-  %%
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  
-  1. Redistributions of source code must retain the above copyright notice,
-     this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
-  #L%
-  -->
-<!--
 Copyright © 2017 VMware, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -37,7 +9,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Except as explicitly provided herein, no express or implied licenses, under any VMware patents, copyrights, trademarks, or any other intellectual property rights, are granted or waived by implication, exhaustion, estoppel, or otherwise, on modified versions of the Software.
---><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
+-->
+<xs:schema xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta"
+    jaxb:version="2.0" jaxb:extensionBindingPrefixes="meta" elementFormDefault="qualified"
+    targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
 
     <xs:include schemaLocation="common.xsd"/>
 
@@ -47,7 +23,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:documentation>
     </xs:annotation>
 
-    <xs:complexType name="MultisiteType" abstract="true">
+    <xs:complexType name="MultisiteType" abstract="true" >
         <xs:annotation>
             <xs:appinfo>
                 <meta:version added-in="MULTI_SITE"/>
@@ -62,7 +38,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:sequence>
                     <xs:element name="RestEndpoint" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The URI of the REST API end-point for the site.
@@ -73,7 +49,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="BaseUiEndpoint" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation source="deprecated">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -85,7 +61,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="TenantUiEndpoint" type="xs:anyURI" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation source="deprecated">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -97,7 +73,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="RestEndpointCertificate" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                  Optional PEM-encoded certificate to use when connecting to the REST API end-point.
@@ -111,7 +87,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="Site" type="SiteType"/>
+    <xs:element name="Site" type="SiteType" />
     <xs:complexType name="SiteType">
         <xs:annotation>
             <xs:appinfo>
@@ -126,15 +102,15 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         <xs:complexContent>
             <xs:extension base="MultisiteType">
                 <xs:sequence>
-                    <xs:element name="MultiSiteUrl" type="xs:anyURI" minOccurs="1" maxOccurs="1">
+                    <xs:element name="MultiSiteUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The URL that represents the entire multisite setup.
                             </xs:documentation>
                             <xs:documentation source="modifiable">always</xs:documentation>
-                            <xs:documentation source="required">true</xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="SiteAssociations" type="SiteAssociationsType" minOccurs="0" maxOccurs="1">
@@ -194,7 +170,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     <xs:complexType name="SiteAssociationType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="MULTI_SITE"/>
+                <meta:version added-in="MULTI_SITE" />
                 <meta:content-type>application/vnd.vmware.admin.siteAssociation</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">MULTI_SITE</xs:documentation>
@@ -207,7 +183,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:sequence>
                     <xs:element name="SiteId" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The URN of the remote site
@@ -218,7 +194,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="SiteName" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The name of the remote site
@@ -229,8 +205,9 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="PublicKey" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
+                            <xs:documentation source="deprecated">35.0</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 PEM-encoded public key for the remote site.
                             </xs:documentation>
@@ -240,7 +217,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="Status" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Current status of this association. One of:&lt;br&gt;
@@ -263,7 +240,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="SiteStatus" type="SiteStatusType"/>
+    <xs:element name="SiteStatus" type="SiteStatusType" />
     <xs:complexType name="SiteStatusType">
         <xs:annotation>
             <xs:appinfo>
@@ -288,9 +265,18 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 </xs:attribute>
                 <xs:attribute name="siteName" type="xs:string">
                     <xs:annotation>
-                        <xs:appinfo><meta:version added-in="IMPROVED_SITE_NAME"/></xs:appinfo>
+                        <xs:appinfo><meta:version added-in="IMPROVED_SITE_NAME" /></xs:appinfo>
                         <xs:documentation xml:lang="en">
                              Name of the site this status represents.
+                        </xs:documentation>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="dbCollation" type="xs:string">
+                    <xs:annotation>
+                        <xs:appinfo><meta:version added-in="SITE_DB_COLLATION" /></xs:appinfo>
+                        <xs:documentation xml:lang="en">
+                             Site database collation configuration
                         </xs:documentation>
                         <xs:documentation source="modifiable">none</xs:documentation>
                     </xs:annotation>
@@ -341,7 +327,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     <xs:complexType name="OrgAssociationType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="MULTI_SITE"/>
+                <meta:version added-in="MULTI_SITE" />
                 <meta:content-type>application/vnd.vmware.admin.organizationAssociation</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">MULTI_SITE</xs:documentation>
@@ -354,7 +340,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:sequence>
                     <xs:element name="SiteId" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The URN of the site that this organization occupies.
@@ -365,7 +351,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="OrgId" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The URN of the organization with which to associate.
@@ -376,7 +362,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="SiteName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The name of the site that the organization occupies.
@@ -387,7 +373,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="OrgName" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The name of the organization with which to associate.
@@ -398,7 +384,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="OrgPublicKey" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 PEM-encoded public key for this organization.
@@ -409,7 +395,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="Status" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Current status of this association. One of:&lt;br&gt;
@@ -450,7 +436,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                 <xs:sequence>
                     <xs:element name="LocationId" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT" /></xs:appinfo>
                             <xs:documentation source="since">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The id of the location. format: orgId@siteId
@@ -460,7 +446,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="LocationName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation source="deprecated">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -472,7 +458,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="SiteName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT" /></xs:appinfo>
                             <xs:documentation source="since">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The name of the site.
@@ -483,7 +469,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="OrgName" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT" /></xs:appinfo>
                             <xs:documentation source="since">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The name of the organization.
@@ -494,7 +480,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="RestApiEndpoint" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The vCloud API endpoint (RestApiBaseUri) for the location.
@@ -505,7 +491,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="UIEndpoint" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The vCloud Director Web Console
@@ -518,7 +504,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="UseMultisiteToken" type="xs:boolean" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="MULTI_SITE"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="MULTI_SITE" /></xs:appinfo>
                             <xs:documentation source="since">MULTI_SITE</xs:documentation>
                             <xs:documentation source="deprecated">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
@@ -530,7 +516,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="AuthContext" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="JWT_LOGIN_SUPPORT" /></xs:appinfo>
                             <xs:documentation source="since">JWT_LOGIN_SUPPORT</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 The auth context for this org
@@ -540,7 +526,7 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     </xs:element>
                     <xs:element name="ApiVersion" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:appinfo><meta:version added-in="INCLUDE_API_VERSION_IN_AUTH_LOCATION"/></xs:appinfo>
+                            <xs:appinfo><meta:version added-in="INCLUDE_API_VERSION_IN_AUTH_LOCATION" /></xs:appinfo>
                             <xs:documentation source="since">33.0</xs:documentation>
                             <xs:documentation xml:lang="en">
                                 Highest API version supported by this location.
@@ -591,17 +577,18 @@ Except as explicitly provided herein, no express or implied licenses, under any 
     <xs:complexType name="MultisiteSessionUserInfoType">
         <xs:annotation>
             <xs:appinfo>
-                <meta:version added-in="JWT_LOGIN_SUPPORT"/>
+                <meta:version added-in="JWT_LOGIN_SUPPORT" />
                 <meta:content-type>application/vnd.vmware.vcloud.multisiteSessionUserInfo</meta:content-type>
             </xs:appinfo>
             <xs:documentation source="since">JWT_LOGIN_SUPPORT</xs:documentation>
             <xs:documentation xml:lang="en">Container for MultisiteSessionUserInfoType</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="Username" type="xs:string" minOccurs="1" maxOccurs="1">
+            <xs:element name="Username" type="xs:string"
+                minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="JWT_LOGIN_SUPPORT"/>
+                        <meta:version added-in="JWT_LOGIN_SUPPORT" />
                     </xs:appinfo>
                     <xs:documentation source="modifiable">none
                     </xs:documentation>
@@ -609,10 +596,11 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="FullName" type="xs:string" minOccurs="1" maxOccurs="1">
+            <xs:element name="FullName" type="xs:string"
+                minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="JWT_LOGIN_SUPPORT"/>
+                        <meta:version added-in="JWT_LOGIN_SUPPORT" />
                     </xs:appinfo>
                     <xs:documentation source="modifiable">none
                     </xs:documentation>
@@ -620,7 +608,8 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="Email" type="xs:string" minOccurs="1" maxOccurs="1">
+            <xs:element name="Email" type="xs:string"
+                minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>
                         <meta:version added-in="JWT_LOGIN_SUPPORT"/>
@@ -630,33 +619,47 @@ Except as explicitly provided herein, no express or implied licenses, under any 
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="MemberProviderType" type="xs:string" minOccurs="1" maxOccurs="1">
+            <xs:element name="MemberProviderType" type="xs:string"
+                minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="JWT_LOGIN_SUPPORT"/>
+                        <meta:version added-in="JWT_LOGIN_SUPPORT" />
                     </xs:appinfo>
                     <xs:documentation source="modifiable">none</xs:documentation>
                     <xs:documentation xml:lang="en">Provider type of the user</xs:documentation>
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="IdpRecommendedRoles" type="IdpRecommendedRolesType" minOccurs="1" maxOccurs="1">
+            <xs:element name="IdpRecommendedRoles" type="IdpRecommendedRolesType"
+                minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="JWT_LOGIN_SUPPORT"/>
+                        <meta:version added-in="JWT_LOGIN_SUPPORT" />
                     </xs:appinfo>
                     <xs:documentation source="modifiable">none</xs:documentation>
                     <xs:documentation xml:lang="en">Role recommended by the IDP</xs:documentation>
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="IdpGroups" type="IdpGroupsType" minOccurs="1" maxOccurs="1">
+            <xs:element name="IdpGroups" type="IdpGroupsType"
+                minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>
-                        <meta:version added-in="JWT_LOGIN_SUPPORT"/>
+                        <meta:version added-in="JWT_LOGIN_SUPPORT" />
                     </xs:appinfo>
                     <xs:documentation source="modifiable">none</xs:documentation>
                     <xs:documentation xml:lang="en">Groups obtained from the IDP</xs:documentation>
+                    <xs:documentation source="required">true</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SoftwareId" type="xs:string"
+                minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <meta:version added-in="MULTI_SITE_SERVICE_ACCOUNTS" />
+                    </xs:appinfo>
+                    <xs:documentation source="modifiable">none</xs:documentation>
+                    <xs:documentation xml:lang="en">Software ID of Service Account</xs:documentation>
                     <xs:documentation source="required">true</xs:documentation>
                 </xs:annotation>
             </xs:element>
