@@ -5,7 +5,7 @@
 
     <jxb:bindings schemaLocation="vmwextensions.xsd" node="/xs:schema">
         <jxb:schemaBindings>
-            <jxb:package name="com.vmware.vcloud.api.rest.schema_v1_5.extension"/>
+            <jxb:package name="com.vmware.vcloud.api.rest.schema.extension"/>
         </jxb:schemaBindings>
     </jxb:bindings>
 </jxb:bindings>

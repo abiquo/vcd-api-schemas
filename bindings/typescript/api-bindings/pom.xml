@@ -109,8 +109,8 @@
             <package>com.vmware.vcloud.api.rest.schema.ovf.environment</package>
             <package>com.vmware.vcloud.api.rest.schema.ovf.vmware</package>
             <package>com.vmware.vcloud.api.rest.schema.versioning</package>
-            <package>com.vmware.vcloud.api.rest.schema_v1_5</package>
-            <package>com.vmware.vcloud.api.rest.schema_v1_5.extension</package>
+            <package>com.vmware.vcloud.api.rest.schema</package>
+            <package>com.vmware.vcloud.api.rest.schema.extension</package>
           </packages>
         </configuration>
         <dependencies>
